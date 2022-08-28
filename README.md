@@ -43,7 +43,8 @@ The following user stories were considered in planning this app:
 * hopefully I'll get this project deployed, but we'll see!
 
 ## Research & Planning Log
-* Friday 8/26: repossible website names. Seems like yrztruly.com is available.
+* Friday, 8/26: repossible website names. Seems like yrztruly.com is available.
+* Saturday, 8/27: light research on hosting: Saw article that Heroku was closing. Already have a Nefliy account, [this article](https://www.freecodecamp.org/news/how-to-deploy-a-react-application-to-netlify-363b8a98a985/) might be useful if I get to that point.
 
 ## Known Bugs
 
