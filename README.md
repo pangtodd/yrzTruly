@@ -55,6 +55,8 @@ The following user stories were considered in planning this app:
 * Saturday, 8/27: did the homework RE: Firebase/Firestore, in case a SQL database might work better, started looking into connecting React with Ruby. Seems like you mainly just set up your DB and then set it up as an API. Links:
   * https://www.microverse.org/blog/how-to-connect-ruby-on-rails-with-react-to-create-responsive-apps
   * https://medium.com/swlh/how-to-use-rails-backend-with-react-frontend-8cc81302eb63
+* Saturday, 8/27: more videos about connecting DB to React (this one uses Firebase):
+  * https://www.youtube.com/watch?v=HVdMhKN2ng4
     
 
 
