@@ -49,6 +49,10 @@ The following user stories were considered in planning this app:
   * Celebrity birthdays:
     * API ninja: https://api-ninjas.com/api/celebrity
     * someone scraped famousbirdays.com and made an API https://github.com/daxeel/CelebInfo-API
+    * Wikipedia interface...might be helpful for both this day in history, births, and deaths for a particular day (https://api.wikimedia.org/wiki/API_reference/Feed/On_this_day)
+  * day in history
+    * see the wikipeida interface.
+    
 
 
 ## Known Bugs 
