@@ -62,6 +62,7 @@ The following user stories were considered in planning this app:
     * figure out authentication, that will be importat for offering CRUD functionality. In this week's lesson!
     * Once I know how to do those things, should be able to start building a bare-bones site with MVP.
     * after that, lay in MVPs as time permits.
+* Saturday, 8/27: started researching authentication, even though we'll be covering it in class, started with [this article](https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications)
     
 
 
