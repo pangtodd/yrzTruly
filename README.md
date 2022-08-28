@@ -57,6 +57,11 @@ The following user stories were considered in planning this app:
   * https://medium.com/swlh/how-to-use-rails-backend-with-react-frontend-8cc81302eb63
 * Saturday, 8/27: more videos about connecting DB to React (this one uses Firebase):
   * https://www.youtube.com/watch?v=HVdMhKN2ng4
+* Saturday, 8/27: Spent some time planning priorities:
+    * figure out database. We're covering this in class this section, but preparing some plan b stuff just in case.
+    * figure out authentication, that will be importat for offering CRUD functionality. In this week's lesson!
+    * Once I know how to do those things, should be able to start building a bare-bones site with MVP.
+    * after that, lay in MVPs as time permits.
     
 
 
