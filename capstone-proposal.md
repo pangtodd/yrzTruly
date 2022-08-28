@@ -28,9 +28,9 @@ If you finish developing the minimum viable product (MVP) with time to spare, wh
 * allow authenticated users to add suggestions
 * API call: pull up other people who have the same birthday
 * API call: pull up historical events from a particular day
-* * pending volume of database: 
-* Make different catagories available/searchable for users (ie, serious message, funny, ambigious, birthday, anniversary, new employee, loss, etc).
-* Make different relationships available/searchable for users (ie, close friend, distant coworker/relative, spouse, etc).
+* pending volume of database: 
+  * Make different catagories available/searchable for users (ie, serious message, funny, ambigious, birthday, anniversary, new employee, loss, etc).
+  * Make different relationships available/searchable for users (ie, close friend, distant coworker/relative, spouse, etc).
 * figure out how to host website on live server (AWS, Heroku, etc)
 
 What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?

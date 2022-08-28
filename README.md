@@ -45,11 +45,14 @@ The following user stories were considered in planning this app:
 ## Research & Planning Log
 * Friday, 8/26: repossible website names. Seems like yrztruly.com is available.
 * Saturday, 8/27: light research on hosting: Saw article that Heroku was closing. Already have a Nefliy account, [this article](https://www.freecodecamp.org/news/how-to-deploy-a-react-application-to-netlify-363b8a98a985/) might be useful if I get to that point.
+* Saturday, 8/27: API research:
+  * Celebrity birthdays:
+    * API ninja: https://api-ninjas.com/api/celebrity
+    * someone scraped famousbirdays.com and made an API https://github.com/daxeel/CelebInfo-API
 
-## Known Bugs
 
-* When editing a coffee, you must complete all fields, othewise, they return as null. Didn't have time to fix that, but probably could add a conditional to address that.
-* As of 8/13/2022, no other known bugs
+## Known Bugs 
+* As of 8/27/2022, no known bugs
 * email pang.todd@gmail.com if you notice any problems or have feedback
 
 ## License
