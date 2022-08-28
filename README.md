@@ -52,6 +52,9 @@ The following user stories were considered in planning this app:
     * Wikipedia interface...might be helpful for both this day in history, births, and deaths for a particular day (https://api.wikimedia.org/wiki/API_reference/Feed/On_this_day)
   * day in history
     * see the wikipeida interface.
+* Saturday, 8/27: did the homework RE: Firebase/Firestore, in case a SQL database might work better, started looking into connecting React with Ruby. Seems like you mainly just set up your DB and then set it up as an API. Links:
+  * https://www.microverse.org/blog/how-to-connect-ruby-on-rails-with-react-to-create-responsive-apps
+  * https://medium.com/swlh/how-to-use-rails-backend-with-react-frontend-8cc81302eb63
     
 
 
