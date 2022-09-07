@@ -1,13 +1,14 @@
 import React from "react";
+import GreetingList from "./GreetingList";
+import Header from "./Header";
 
 function App(){
   return (
     <React.Fragment>
-      <h1>Message type</h1>
-      <h3>message</h3>
-      <hr/>
+      <Header />
+      <GreetingList />
     </React.Fragment>
-  )
+  );
 }
 
 export default App;
