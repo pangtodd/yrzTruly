@@ -3,7 +3,10 @@ import Greeting from "./Greeting";
 
 function GreetingList(){
   return(
-    <Greeting />
+    <Greeting 
+      relation = "co-worker"
+      message = "You are the apex predator of Excel."
+      />
   );
 }
 
