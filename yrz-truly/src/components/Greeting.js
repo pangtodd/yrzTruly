@@ -11,4 +11,9 @@ function Greeting(props){
   );
 }
 
+Greeting.propTypes ={
+  relation: PropTypes.string,
+  message: ProptTypes.string
+}
+
 export default Greeting;
