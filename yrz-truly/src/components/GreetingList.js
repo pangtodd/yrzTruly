@@ -16,10 +16,15 @@ const mainGreetingList = [
 
 function GreetingList(){
   return(
-    <Greeting 
-      relation = "co-worker"
-      message = "You are the apex predator of Excel."
-      />
+    <React.Fragment>
+      <hr/>
+      {mainGreetingList.map((greeting, index)=>
+        <Greeting relation={greeting.relation}
+        occasion={greeting.occasion}
+        message={greeting.message}
+        key={index}/> 
+      )}
+    </React.Fragment>
   );
 }
 
