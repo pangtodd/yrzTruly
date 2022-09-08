@@ -10,7 +10,7 @@ const mainGreetingList = [
   {
     relation: "sibling",
     occasion: "birthday",
-    message: "Statistically, 45% of all pregnancies are unplanned. Happy Birthday!"
+    message: "Statistically, 45% of all pregnancies/children are unplanned. Happy Birthday!"
   },
 ]
 

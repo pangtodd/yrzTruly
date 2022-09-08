@@ -1,8 +1,10 @@
 import React from "react";
+import bannerImage from "./../img/yrzTruly.jpeg";
+
 
 function Header(){
   return (
-    <h1>Yrz Truly,</h1>
+    <img src={bannerImage} alt="old-timey banner" />
   );
 }
 
