@@ -1,13 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { v4 } from 'uuid';
 
 function NewGreetingForm(props){
 
   function handleNewGreetingFormSubmission(event){
     event.preventDefault();
-    console.log(event.target.relation.value);
-    console.log(event.target.occasion.value);
-    console.log(event.target.message.value);
+    props.onNewGreetingCreation({
+      relation: event.target.relation.value,
+      occation: event.target.occasion.value,
+      message: event.target.message.value,
+      id: v4()
+    });
+    
   }
 
   return(
