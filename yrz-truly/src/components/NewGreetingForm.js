@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function NewGreetingForm(){
+function NewGreetingForm(props){
 
   function handleNewGreetingFormSubmission(event){
     event.preventDefault();
@@ -35,6 +36,10 @@ function NewGreetingForm(){
       </form>
     </React.Fragment>
   );
+}
+
+NewGreetingForm.propTypes={
+  onNewGreetingCreation: PropTypes.func,
 }
 
 export default NewGreetingForm;
