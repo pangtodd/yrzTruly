@@ -1,6 +1,14 @@
 import React from "react";
 
-function NewGreetingForm(props){
+function NewGreetingForm(){
+
+  function handleNewGreetingFormSubmission(event){
+    event.preventDefault();
+    console.log(event.target.relation.value);
+    console.log(event.target.occasion.value);
+    console.log(event.target.message.value);
+  }
+
   return(
     <React.Fragment>
       <form onSubmit ={handleNewGreetingFormSubmission}>
@@ -8,14 +16,22 @@ function NewGreetingForm(props){
           type='text'
           name='relation'
           placeholder='who is this message for?'/>
+          <br></br>
+          <br></br>
         <input
           type='text'
           name='occasion'
           placeholder='occasion?'/>
+          <br></br>
+          <br></br>
         <textarea
           name= 'message'
           placeholder='your message'/>
+          <br></br>
+          <br></br>
         <button type='submit'>Submit message</button>
+        <br></br>
+        <br></br>
       </form>
     </React.Fragment>
   );
