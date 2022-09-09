@@ -1,12 +1,13 @@
 import React from "react";
-import GreetingList from "./GreetingList";
+// import GreetingList from "./GreetingList";
 import Header from "./Header";
+import GreetingControl from "./GreetingControl";
 
 function App(){
   return (
     <React.Fragment>
       <Header />
-      <GreetingList />
+      <GreetingControl />
     </React.Fragment>
   );
 }
