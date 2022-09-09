@@ -7,7 +7,8 @@ class GreetingControl extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      mainGreetingList: []
     };
   }
 
@@ -17,14 +18,19 @@ class GreetingControl extends React.Component {
     }));
   }
 
+  handleAddingNewGreetingToList=(newGreeting)=>{
+    const newMainGreetingList = this.state.mainGreetingList.concat(newGreeting);
+    this.setState({mainGreetingList: newMainGreetingList, formVisibleOnPage: false})
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.formVisibleOnPage){
-      currentlyVisibleState= <NewGreetingForm />
+      currentlyVisibleState= <NewGreetingForm onNewGreetingCreation={this.handleAddingNewGreetingToList} />
       buttonText= "return to list"; 
     } else {
-      currentlyVisibleState = <GreetingList />
+      currentlyVisibleState = <GreetingList greetingList={this.state.mainGreetingList} />
       buttonText= "add greeting"
     }
     return(
