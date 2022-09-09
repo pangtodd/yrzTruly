@@ -10,13 +10,13 @@ function GreetingList(props){
         <Greeting relation={greeting.relation}
         occasion={greeting.occasion}
         message={greeting.message}
-        key={index}/> 
+        key={index} /> 
       )}
     </React.Fragment>
   );
 }
 
-GreetingList.PropTypes={
+GreetingList.propTypes={
   greetingList: PropTypes.array
 };
 
