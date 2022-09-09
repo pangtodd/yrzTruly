@@ -12,22 +12,26 @@ class GreetingControl extends React.Component {
   }
 
   handleClick = ()=> {
-    this.setState({formVisibleOnPage: true});
+    this.setState(prevState=>({
+      formVisibleOnPage: !prevState.formVisibleOnPage
+    }));
   }
 
   render(){
     let currentlyVisibleState = null;
-    let addGreetingButton = null;
+    let buttonText = null;
     if (this.state.formVisibleOnPage){
       currentlyVisibleState= <NewGreetingForm />
+      buttonText= "return to list"; 
     } else {
       currentlyVisibleState = <GreetingList />
-      addGreetingButton = <button onClick={this.handleClick}>Add Greeting</button>
+      buttonText= "add greeting"
     }
     return(
       <React.Fragment>
         {currentlyVisibleState}
-        {addGreetingButton}
+        <button onClick={this.handleClick}>{buttonText}</button>
+
       </React.Fragment>
     );
   }
