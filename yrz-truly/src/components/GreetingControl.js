@@ -15,9 +15,16 @@ class GreetingControl extends React.Component {
   }
 
   handleClick = ()=> {
+    if (this.state.selectedGreeting != null){
+      this.setState({
+        formVisibleOnPage: false,
+        selectedGreeting: null
+      });
+    } else {
     this.setState(prevState=>({
       formVisibleOnPage: !prevState.formVisibleOnPage
-    }));
+      }));
+    }
   }
 
   handleAddingNewGreetingToList=(newGreeting)=>{
@@ -37,17 +44,20 @@ class GreetingControl extends React.Component {
     let buttonText = null;
     if (this.state.selectedGreeting != null){
       currentlyVisibleState = 
-        <GreetingDetail greeting = {this.state.selectedGreeting}/>
-        buttonText="return to list";
+        <GreetingDetail 
+          greeting = {this.state.selectedGreeting}/>
+          buttonText="return to list";
     } else if (this.state.formVisibleOnPage){
       currentlyVisibleState= 
-        <NewGreetingForm onNewGreetingCreation={this.handleAddingNewGreetingToList} />
-        buttonText= "return to list"; 
+        <NewGreetingForm 
+          onNewGreetingCreation={this.handleAddingNewGreetingToList} />
+          buttonText= "return to list"; 
     } else {
       currentlyVisibleState = 
-        <GreetingList greetingList={this.state.mainGreetingList} 
-        onGreetingSelection ={this.handleChangingSelectedGreeting}/>
-      buttonText= "add greeting"
+        <GreetingList 
+          greetingList={this.state.mainGreetingList} 
+          onGreetingSelection ={this.handleChangingSelectedGreeting}/>
+          buttonText= "add greeting"
     }
     return(
       <React.Fragment>
