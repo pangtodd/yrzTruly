@@ -8,7 +8,8 @@ class GreetingControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainGreetingList: []
+      mainGreetingList: [],
+      selectedGreeting: null,
     };
   }
 
@@ -20,7 +21,9 @@ class GreetingControl extends React.Component {
 
   handleAddingNewGreetingToList=(newGreeting)=>{
     const newMainGreetingList = this.state.mainGreetingList.concat(newGreeting);
-    this.setState({mainGreetingList: newMainGreetingList, formVisibleOnPage: false})
+    this.setState({
+      mainGreetingList: newMainGreetingList, 
+      formVisibleOnPage: false})
   }
 
   render(){
