@@ -26,6 +26,11 @@ class GreetingControl extends React.Component {
       formVisibleOnPage: false})
   }
 
+  handleChangingSelectedGreeting = (id)=> {
+    const selectedGreeting = this.state.mainGreetingList.filter(greeting=>greeting.id === id)[0];
+    this.setState({selectedGreeting: selectedGreeting})
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
