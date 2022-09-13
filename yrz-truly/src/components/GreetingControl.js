@@ -1,6 +1,7 @@
 import React from 'react';
 import NewGreetingForm from './NewGreetingForm';
 import GreetingList from './GreetingList';
+import GreetingDetail from './GreetingDetail';
 
 class GreetingControl extends React.Component {
 
@@ -34,11 +35,18 @@ class GreetingControl extends React.Component {
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.formVisibleOnPage){
-      currentlyVisibleState= <NewGreetingForm onNewGreetingCreation={this.handleAddingNewGreetingToList} />
-      buttonText= "return to list"; 
+    if (this.state.selectedGreeting != null){
+      currentlyVisibleState = 
+        <GreetingDetail greeting = {this.state.selectedGreeting}/>
+        buttonText="return to list";
+    } else if (this.state.formVisibleOnPage){
+      currentlyVisibleState= 
+        <NewGreetingForm onNewGreetingCreation={this.handleAddingNewGreetingToList} />
+        buttonText= "return to list"; 
     } else {
-      currentlyVisibleState = <GreetingList greetingList={this.state.mainGreetingList} />
+      currentlyVisibleState = 
+        <GreetingList greetingList={this.state.mainGreetingList} 
+        onGreetingSelection ={this.handleChangingSelectedGreeting}/>
       buttonText= "add greeting"
     }
     return(
