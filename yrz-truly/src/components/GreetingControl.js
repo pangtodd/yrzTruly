@@ -39,6 +39,14 @@ class GreetingControl extends React.Component {
     this.setState({selectedGreeting: selectedGreeting})
   }
 
+  handleDeletingGreeting =(id)=>{
+    const newMainGreetingList = this.state.mainGreetingList.filter(greeting=>greeting.id!==id);
+    this.setState({
+      mainGreetingList: newMainGreetingList,
+      selectedGreeting: null
+    });
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
