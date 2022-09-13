@@ -17,7 +17,7 @@ function GreetingDetail(props){
 }
 
 GreetingDetail.propTypes={
-  greeting:PropTypes.object
+  greeting:PropTypes.object,
   onClickingDelete: PropTypes.func,
 };
 

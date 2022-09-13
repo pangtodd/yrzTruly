@@ -6,18 +6,22 @@ function GreetingList(props){
   return(
     <React.Fragment>
       <hr/>
-      {props.greetingList.map((greeting, index)=>
-        <Greeting relation={greeting.relation}
-        occasion={greeting.occasion}
-        message={greeting.message}
-        key={index} /> 
+      {props.greetingList.map((greeting)=>
+        <Greeting
+          whenGreetingClicked = { props.onGreetingSelection} 
+          relation={greeting.relation}
+          occasion={greeting.occasion}
+          message={greeting.message}
+          id={greeting.id}
+          key={greeting.id} /> 
       )}
     </React.Fragment>
   );
 }
 
 GreetingList.propTypes={
-  greetingList: PropTypes.array
+  greetingList: PropTypes.array,
+  onGreetingSelection: PropTypes.func
 };
 
 export default GreetingList;

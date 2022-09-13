@@ -8,7 +8,7 @@ function NewGreetingForm(props){
     event.preventDefault();
     props.onNewGreetingCreation({
       relation: event.target.relation.value,
-      occation: event.target.occasion.value,
+      occasion: event.target.occasion.value,
       message: event.target.message.value,
       id: v4()
     });
