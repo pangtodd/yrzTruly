@@ -60,7 +60,8 @@ class GreetingControl extends React.Component {
       currentlyVisibleState = 
         <GreetingDetail 
           greeting = {this.state.selectedGreeting}
-          onClickingDelete={this.handleDeletingGreeting} />
+          onClickingDelete={this.handleDeletingGreeting} 
+          onClickingEdit = {this.handleEditClick}/>
           buttonText="return to list";
     } else if (this.state.formVisibleOnPage){
       currentlyVisibleState= 
