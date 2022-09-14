@@ -2,6 +2,7 @@ import React from 'react';
 import NewGreetingForm from './NewGreetingForm';
 import GreetingList from './GreetingList';
 import GreetingDetail from './GreetingDetail';
+import EditGreetingForm from './EditGreetingForm';
 
 class GreetingControl extends React.Component {
 
@@ -53,6 +54,17 @@ class GreetingControl extends React.Component {
     this.setState({editing:true});
   }
 
+  handleEditingGreetingInList=(greetingToEdit)=>{
+    const editedMainGreetingList = this.state.mainGreetingList
+      .filter(greeting=>greeting.id !==this.state.selectedGreeting.id)
+      .concat(greetingToEdit);
+    this.setState({
+      mainGreetingList: editedMainGreetingList,
+      editing: false,
+      selectedGreeting: null
+    });
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -60,8 +72,7 @@ class GreetingControl extends React.Component {
       currentlyVisibleState=
         <EditGreetingForm greeting={this.state.selectedGreeting}/>
         buttonText="return to list";
-    }
-    else if (this.state.selectedGreeting != null){
+    } else if (this.state.selectedGreeting != null){
       currentlyVisibleState = 
         <GreetingDetail 
           greeting = {this.state.selectedGreeting}
