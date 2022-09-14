@@ -56,7 +56,12 @@ class GreetingControl extends React.Component {
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.selectedGreeting != null){
+    if(this.state.editing){
+      currentlyVisibleState=
+        <EditGreetingForm greeting={this.state.selectedGreeting}/>
+        buttonText="return to list";
+    }
+    else if (this.state.selectedGreeting != null){
       currentlyVisibleState = 
         <GreetingDetail 
           greeting = {this.state.selectedGreeting}
