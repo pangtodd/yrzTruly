@@ -11,6 +11,7 @@ class GreetingControl extends React.Component {
       formVisibleOnPage: false,
       mainGreetingList: [],
       selectedGreeting: null,
+      editing: false,
     };
   }
 
@@ -45,6 +46,11 @@ class GreetingControl extends React.Component {
       mainGreetingList: newMainGreetingList,
       selectedGreeting: null
     });
+  }
+
+  handleEditClick=()=>{
+    console.log("handleEditClick reached");
+    this.setState({editing:true});
   }
 
   render(){
