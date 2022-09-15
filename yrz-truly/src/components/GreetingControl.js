@@ -4,32 +4,20 @@ import GreetingList from './GreetingList';
 import GreetingDetail from './GreetingDetail';
 import EditGreetingForm from './EditGreetingForm';
 
-function GreetingControl{
-
-  // constructor(props){
-  //   super(props);
-  //   this.state = {
-  //     formVisibleOnPage: false,
-  //     mainGreetingList: [],
-  //     selectedGreeting: null,
-  //     editing: false,
-  //   };
-  // }
+function GreetingControl(){
 
   const [formVisibleOnPage, setFormVisibleOnPage]= useState(false);
   const [mainGreetingList, setMainGreetingList]= useState([]);
+  const [selectedGreeting, setSelectedGreeting]= useState(null);
+  const [editing, setEditing]= useState(false);
 
   const handleClick = ()=> {
-    if (this.state.selectedGreeting != null){
-      this.setState({
-        formVisibleOnPage: false,
-        selectedGreeting: null,
-        editing: false,
-      });
+    if (selectedGreeting != null) {
+      setFormVisibleOnPage(false);
+      setSelectedGreeting(null);
+      setEditing(false);
     } else {
-    this.setState(prevState=>({
-      formVisibleOnPage: !prevState.formVisibleOnPage
-      }));
+      setFormVisibleOnPage(!formVisibleOnPage);
     }
   }
 
