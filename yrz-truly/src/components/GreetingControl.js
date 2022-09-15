@@ -20,7 +20,8 @@ class GreetingControl extends React.Component {
     if (this.state.selectedGreeting != null){
       this.setState({
         formVisibleOnPage: false,
-        selectedGreeting: null
+        selectedGreeting: null,
+        editing: false,
       });
     } else {
     this.setState(prevState=>({
