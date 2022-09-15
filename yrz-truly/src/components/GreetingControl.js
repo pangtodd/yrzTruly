@@ -28,46 +28,48 @@ function GreetingControl(){
   }
 
   const handleChangingSelectedGreeting = (id)=> {
-    const selectedGreeting = this.state.mainGreetingList.filter(greeting=>greeting.id === id)[0];
-    this.setState({selectedGreeting: selectedGreeting})
+    const selection = this.state.mainGreetingList.filter(greeting=>greeting.id === id)[0];
+    setSelectedGreeting(selection);
   }
 
   const handleDeletingGreeting =(id)=>{
-    const newMainGreetingList = this.state.mainGreetingList.filter(greeting=>greeting.id!==id);
+    const newMainGreetingList = mainGreetingList.filter(greeting=>greeting.id!==id);
     setMainGreetingList(newMainGreetingList);
+    setSelectedGreeting(null);
   }
 
   const handleEditClick=()=>{
-    this.setState({editing:true});
+    setEditing(true);
   }
 
   const handleEditingGreetingInList=(greetingToEdit)=>{
     const editedMainGreetingList = mainGreetingList
-      .filter(greeting=>greeting.id !==this.state.selectedGreeting.id)
+      .filter(greeting=>greeting.id !== selectedGreeting.id)
       .concat(greetingToEdit);
     setMainGreetingList(editedMainGreetingList);
+    setEditing(false);
     });
   }
-}
 
-  // render(){
+
+
 let currentlyVisibleState = null;
 let buttonText = null;
 
-if(this.state.editing){
+if(editing){
   currentlyVisibleState=
-    <EditGreetingForm 
-      greeting={this.state.selectedGreeting}
-      onEditGreeting={this.handleEditingGreetingInList}/>
-      buttonText="return to list";
-} else if (this.state.selectedGreeting != null){
+    <EditGreetingForm
+      greeting = {selectedGreeting}
+      onEditGreeting= {this.handleEditingGreetingInList}/>
+    buttonText="return to ticket list";
+} else if (selectedGreeting != null){
   currentlyVisibleState = 
     <GreetingDetail 
-      greeting = {this.state.selectedGreeting}
+      greeting = {selectedGreeting}
       onClickingDelete={this.handleDeletingGreeting} 
       onClickingEdit = {this.handleEditClick}/>
       buttonText="return to list";
-} else if (this.state.formVisibleOnPage){
+} else if (formVisibleOnPage){
   currentlyVisibleState= 
     <NewGreetingForm 
       onNewGreetingCreation={this.handleAddingNewGreetingToList} />
@@ -79,6 +81,7 @@ if(this.state.editing){
       greetingList ={mainGreetingList} />;
     buttonText= "add greeting"
 }
+  
   return(
     <React.Fragment>
       {currentlyVisibleState}
