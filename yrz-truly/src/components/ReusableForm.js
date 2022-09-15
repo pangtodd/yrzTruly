@@ -22,7 +22,7 @@ function ReusableForm(props) {
         placeholder='your message'/>
         <br></br>
         <br></br>
-      <button type='submit'>Submit message</button>
+      <button type='submit'>Submit greeting</button>
       <br></br>
       <br></br>
     </form>
