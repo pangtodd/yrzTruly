@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NewGreetingForm from './NewGreetingForm';
 import GreetingList from './GreetingList';
 import GreetingDetail from './GreetingDetail';
@@ -21,14 +21,14 @@ function GreetingControl(){
     }
   }
 
-  const handleAddingNewGreetingToList=(newGreeting)=>{
+  const handleAddingNewGreetingToList = (newGreeting)=>{
     const newMainGreetingList = mainGreetingList.concat(newGreeting);
     setMainGreetingList(newMainGreetingList);
     setFormVisibleOnPage(false)
   }
 
   const handleChangingSelectedGreeting = (id)=> {
-    const selection = this.state.mainGreetingList.filter(greeting=>greeting.id === id)[0];
+    const selection = mainGreetingList.filter(greeting=>greeting.id === id)[0];
     setSelectedGreeting(selection);
   }
 
@@ -48,8 +48,7 @@ function GreetingControl(){
       .concat(greetingToEdit);
     setMainGreetingList(editedMainGreetingList);
     setEditing(false);
-    });
-  }
+    };
 
 
 
@@ -60,24 +59,24 @@ if(editing){
   currentlyVisibleState=
     <EditGreetingForm
       greeting = {selectedGreeting}
-      onEditGreeting= {this.handleEditingGreetingInList}/>
+      onEditGreeting= {handleEditingGreetingInList}/>
     buttonText="return to ticket list";
 } else if (selectedGreeting != null){
   currentlyVisibleState = 
     <GreetingDetail 
       greeting = {selectedGreeting}
-      onClickingDelete={this.handleDeletingGreeting} 
-      onClickingEdit = {this.handleEditClick}/>
+      onClickingDelete={handleDeletingGreeting} 
+      onClickingEdit = {handleEditClick}/>
       buttonText="return to list";
 } else if (formVisibleOnPage){
   currentlyVisibleState= 
     <NewGreetingForm 
-      onNewGreetingCreation={this.handleAddingNewGreetingToList} />
+      onNewGreetingCreation={handleAddingNewGreetingToList} />
       buttonText= "return to list"; 
 } else {
   currentlyVisibleState = 
     <GreetingList 
-      onGreetingSelection ={this.handleChangingSelectedGreeting}
+      onGreetingSelection ={handleChangingSelectedGreeting}
       greetingList ={mainGreetingList} />;
     buttonText= "add greeting"
 }
@@ -85,8 +84,7 @@ if(editing){
   return(
     <React.Fragment>
       {currentlyVisibleState}
-      <button onClick={this.handleClick}>{buttonText}</button>
-
+      <button onClick={handleClick}>{buttonText}</button>
     </React.Fragment>
   );
 }
