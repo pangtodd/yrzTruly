@@ -3,6 +3,8 @@ import NewGreetingForm from './NewGreetingForm';
 import GreetingList from './GreetingList';
 import GreetingDetail from './GreetingDetail';
 import EditGreetingForm from './EditGreetingForm';
+import db from './../firebase.js';
+import { collection, addDoc } from 'firebase/firestore';
 
 function GreetingControl(){
 
@@ -21,10 +23,9 @@ function GreetingControl(){
     }
   }
 
-  const handleAddingNewGreetingToList = (newGreeting)=>{
-    const newMainGreetingList = mainGreetingList.concat(newGreeting);
-    setMainGreetingList(newMainGreetingList);
-    setFormVisibleOnPage(false)
+  const handleAddingNewGreetingToList = async (newGreetingData)=>{
+    await addDoc(collection(db, "greetings"), newGreetingData);
+    setFormVisibleOnPage(false);
   }
 
   const handleChangingSelectedGreeting = (id)=> {
@@ -49,6 +50,8 @@ function GreetingControl(){
     setMainGreetingList(editedMainGreetingList);
     setEditing(false);
     };
+
+    
 
 
 
