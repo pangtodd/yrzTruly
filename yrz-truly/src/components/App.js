@@ -1,14 +1,18 @@
 import React from "react";
-// import GreetingList from "./GreetingList";
+import SignIn from "./SignIn";
 import Header from "./Header";
 import GreetingControl from "./GreetingControl";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App(){
   return (
-    <React.Fragment>
+    <Router>
       <Header />
-      <GreetingControl />
-    </React.Fragment>
+      <Routes>
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path ="/" element ={<GreetingControl />}/>
+      </Routes>      
+    </Router>
   );
 }
 
