@@ -4,7 +4,7 @@ import GreetingList from './GreetingList';
 import GreetingDetail from './GreetingDetail';
 import EditGreetingForm from './EditGreetingForm';
 import db from './../firebase.js';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, onSnapshot } from 'firebase/firestore';
 
 function GreetingControl(){
 
@@ -12,6 +12,18 @@ function GreetingControl(){
   const [mainGreetingList, setMainGreetingList]= useState([]);
   const [selectedGreeting, setSelectedGreeting]= useState(null);
   const [editing, setEditing]= useState(false);
+
+useEffect(()=> {
+  const unSubscribe = onSnapshot(
+    collection(db, "greetings"),
+    (collectionSnapshot)=>{
+      //tba
+    },
+    (error)=>{
+      //tbaII
+    }
+  );
+},[]);
 
   const handleClick = ()=> {
     if (selectedGreeting != null) {
