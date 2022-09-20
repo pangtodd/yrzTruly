@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NewGreetingForm from './NewGreetingForm';
 import GreetingList from './GreetingList';
 import GreetingDetail from './GreetingDetail';
@@ -91,7 +91,5 @@ if(editing){
     </React.Fragment>
   );
 }
-
-
 
 export default GreetingControl;
