@@ -31,7 +31,9 @@ A react app to help you say that special thing to that not-so-special someone.
 * Thurs, 9/8: continuing build/following lessons. 
     * Got to adding an image and decided to trying style components to control banner image size. [This stackOverflow helped](https://stackoverflow.com/questions/60717004/how-to-change-image-src-using-props-with-styled-component-and-react), showed how you could provide a default prop value in the case a src prop isn't passed when in use.
 * Fri, 9/9: continuing build, planning on having basic skeleton built out, then will create branch before switching to hooks. Hopefully will get to that point by Sunday.
-    
+* (fill in other dates based on git log- have been working an hour or so a day)
+* Tues, 9/20: completed hooks and initial firebase connection under "hooks" branch. merged that to main branch once it was working, and created a save point branch of 
+    "preAuth".
 
 
 ## Known Bugs 
