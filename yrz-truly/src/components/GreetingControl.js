@@ -18,7 +18,7 @@ useEffect(()=> {
   const unSubscribe = onSnapshot(
     collection(db, "greetings"), 
     (collectionSnapshot) => {
-      const tickets = [];
+      const greetings = [];
       collectionSnapshot.forEach((doc) => {
           greetings.push({
             relation: doc.data().relation, 
@@ -56,9 +56,8 @@ useEffect(()=> {
     setSelectedGreeting(selection);
   }
 
-  const handleDeletingGreeting =(id)=>{
-    const newMainGreetingList = mainGreetingList.filter(greeting=>greeting.id!==id);
-    setMainGreetingList(newMainGreetingList);
+  const handleDeletingGreeting =async (id)=>{
+    await deleteDoc(doc(db, "greetings", id));
     setSelectedGreeting(null);
   }
 
@@ -66,17 +65,12 @@ useEffect(()=> {
     setEditing(true);
   }
 
-  const handleEditingGreetingInList=(greetingToEdit)=>{
-    const editedMainGreetingList = mainGreetingList
-      .filter(greeting=>greeting.id !== selectedGreeting.id)
-      .concat(greetingToEdit);
-    setMainGreetingList(editedMainGreetingList);
+  const handleEditingGreetingInList= async (greetingToEdit)=>{
+    const greetingRef = doc(db, "greetings", greetingToEdit.id)
+    await updateDoc(greetingRef, greetingToEdit);
     setEditing(false);
+    setSelectedGreeting(null);
     };
-
-    
-
-
 
 let currentlyVisibleState = null;
 let buttonText = null;
