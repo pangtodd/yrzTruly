@@ -4,7 +4,7 @@ import GreetingList from './GreetingList';
 import GreetingDetail from './GreetingDetail';
 import EditGreetingForm from './EditGreetingForm';
 import db from './../firebase.js';
-import { collection, addDoc, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc, doc, updateDoc, onSnapshot, deleteDoc } from 'firebase/firestore';
 
 function GreetingControl(){
 
@@ -12,17 +12,28 @@ function GreetingControl(){
   const [mainGreetingList, setMainGreetingList]= useState([]);
   const [selectedGreeting, setSelectedGreeting]= useState(null);
   const [editing, setEditing]= useState(false);
+  const [error, setError]= useState(null);
 
 useEffect(()=> {
   const unSubscribe = onSnapshot(
-    collection(db, "greetings"),
-    (collectionSnapshot)=>{
-      //tba
-    },
+    collection(db, "greetings"), 
+    (collectionSnapshot) => {
+      const tickets = [];
+      collectionSnapshot.forEach((doc) => {
+          greetings.push({
+            relation: doc.data().relation, 
+            occasion: doc.data().occasion, 
+            message: doc.data().message, 
+            id: doc.id
+          });
+      });
+      setMainGreetingList(greetings);
+    }, 
     (error)=>{
-      //tbaII
+      setError(error.message);
     }
   );
+  return ()=> unSubscribe();
 },[]);
 
   const handleClick = ()=> {
@@ -70,7 +81,10 @@ useEffect(()=> {
 let currentlyVisibleState = null;
 let buttonText = null;
 
-if(editing){
+if (error) {
+  currentlyVisibleState=
+    <p>There was an error: {error}</p>
+} else if(editing) {
   currentlyVisibleState=
     <EditGreetingForm
       greeting = {selectedGreeting}
@@ -99,7 +113,7 @@ if(editing){
   return(
     <React.Fragment>
       {currentlyVisibleState}
-      <button onClick={handleClick}>{buttonText}</button>
+      {error ? null: <button onClick={handleClick}>{buttonText}</button>}
     </React.Fragment>
   );
 }
