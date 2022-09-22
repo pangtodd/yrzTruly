@@ -11,6 +11,7 @@ function EditGreetingForm(props){
       relation: event.target.relation.value,
       occasion: event.target.occasion.value,
       message: event.target.message.value,
+      id: greeting.id
     });
   }
 
