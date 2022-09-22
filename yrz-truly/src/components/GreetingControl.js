@@ -3,7 +3,7 @@ import NewGreetingForm from './NewGreetingForm';
 import GreetingList from './GreetingList';
 import GreetingDetail from './GreetingDetail';
 import EditGreetingForm from './EditGreetingForm';
-import db from './../firebase.js';
+import { db } from './../firebase.js';
 import { collection, addDoc, doc, updateDoc, onSnapshot, deleteDoc } from 'firebase/firestore';
 
 function GreetingControl(){
@@ -83,7 +83,7 @@ if (error) {
     <EditGreetingForm
       greeting = {selectedGreeting}
       onEditGreeting= {handleEditingGreetingInList}/>
-    buttonText="return to ticket list";
+    buttonText="return to Greetings list";
 } else if (selectedGreeting != null){
   currentlyVisibleState = 
     <GreetingDetail 
