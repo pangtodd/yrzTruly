@@ -3,7 +3,7 @@ import NewGreetingForm from './NewGreetingForm';
 import GreetingList from './GreetingList';
 import GreetingDetail from './GreetingDetail';
 import EditGreetingForm from './EditGreetingForm';
-import { db } from './../firebase.js';
+import { db, auth } from './../firebase.js';
 import { collection, addDoc, doc, updateDoc, onSnapshot, deleteDoc } from 'firebase/firestore';
 
 function GreetingControl(){
@@ -75,41 +75,52 @@ useEffect(()=> {
 let currentlyVisibleState = null;
 let buttonText = null;
 
-if (error) {
-  currentlyVisibleState=
-    <p>There was an error: {error}</p>
-} else if(editing) {
-  currentlyVisibleState=
-    <EditGreetingForm
-      greeting = {selectedGreeting}
-      onEditGreeting= {handleEditingGreetingInList}/>
-    buttonText="return to Greetings list";
-} else if (selectedGreeting != null){
-  currentlyVisibleState = 
-    <GreetingDetail 
-      greeting = {selectedGreeting}
-      onClickingDelete={handleDeletingGreeting} 
-      onClickingEdit = {handleEditClick}/>
-      buttonText="return to list";
-} else if (formVisibleOnPage){
-  currentlyVisibleState= 
-    <NewGreetingForm 
-      onNewGreetingCreation={handleAddingNewGreetingToList} />
-      buttonText= "return to list"; 
-} else {
-  currentlyVisibleState = 
-    <GreetingList 
-      onGreetingSelection ={handleChangingSelectedGreeting}
-      greetingList ={mainGreetingList} />;
-    buttonText= "add greeting"
-}
-  
+if (auth.currentUser == null){
   return(
     <React.Fragment>
-      {currentlyVisibleState}
-      {error ? null: <button onClick={handleClick}>{buttonText}</button>}
+      <h1>You must be signed in to access editting ability.</h1>
     </React.Fragment>
-  );
+  )
+} else if (auth.currentUser != null) {
+  let currentlyVisibleState = null;
+  let buttonText =null;
+  if (error) {
+    currentlyVisibleState=
+      <p>There was an error: {error}</p>
+  } else if(editing) {
+    currentlyVisibleState=
+      <EditGreetingForm
+        greeting = {selectedGreeting}
+        onEditGreeting= {handleEditingGreetingInList}/>
+      buttonText="return to Greetings list";
+  } else if (selectedGreeting != null){
+    currentlyVisibleState = 
+      <GreetingDetail 
+        greeting = {selectedGreeting}
+        onClickingDelete={handleDeletingGreeting} 
+        onClickingEdit = {handleEditClick}/>
+        buttonText="return to list";
+  } else if (formVisibleOnPage){
+    currentlyVisibleState= 
+      <NewGreetingForm 
+        onNewGreetingCreation={handleAddingNewGreetingToList} />
+        buttonText= "return to list"; 
+  } else {
+    currentlyVisibleState = 
+      <GreetingList 
+        onGreetingSelection ={handleChangingSelectedGreeting}
+        greetingList ={mainGreetingList} />;
+      buttonText= "add greeting"
+  }
+
+    
+    return(
+      <React.Fragment>
+        {currentlyVisibleState}
+        {error ? null: <button onClick={handleClick}>{buttonText}</button>}
+      </React.Fragment>
+    );
+  }
 }
 
 export default GreetingControl;
