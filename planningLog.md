@@ -32,8 +32,8 @@ A react app to help you say that special thing to that not-so-special someone.
     * Got to adding an image and decided to trying style components to control banner image size. [This stackOverflow helped](https://stackoverflow.com/questions/60717004/how-to-change-image-src-using-props-with-styled-component-and-react), showed how you could provide a default prop value in the case a src prop isn't passed when in use.
 * Fri, 9/9: continuing build, planning on having basic skeleton built out, then will create branch before switching to hooks. Hopefully will get to that point by Sunday.
 * (fill in other dates based on git log- have been working an hour or so a day)
-* Tues, 9/20: completed hooks and initial firebase connection under "hooks" branch. merged that to main branch once it was working, and created a save point branch of 
-    "preAuth".
+* Tues, 9/20: completed hooks and initial firebase connection under "hooks" branch. merged that to main branch once it was working, and created a save point branch of "preAuth".
+* Thurs, 9/22: connected app to firebase. Looking into how to handle roles- I want to have three tiers- unathenticated user (can request/read single greetings), authenticated user (can request/read single greetings, can create suggestion, maybe can up/down vote), admin with full CRUD ability. Looking into how to set up authorization, not well covered in cirriculum. Seems like I need to have custom claims and provide auth token. this video was a good starting point (need to re-watch):  https://www.youtube.com/watch?v=3hj_r_N0qMs
 
 
 ## Known Bugs 
