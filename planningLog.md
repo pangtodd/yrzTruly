@@ -46,6 +46,22 @@ https://www.robinwieruch.de/react-checkbox/
 
 https://www.freecodecamp.org/news/how-to-work-with-multiple-checkboxes-in-react/
 
+* Sunday, 9/25: research, not a lot of coding. Decided to keep working on checkboxes and fell down a rabbit hole. Seems like I should have a controlled form/fields. Here's what I watched:
+
+https://www.youtube.com/watch?v=IkMND33x0qQ
+
+https://www.youtube.com/watch?v=IsnOTmB88tE
+
+https://www.youtube.com/watch?v=-KBS93RlUCY
+
+read:
+
+https://medium.com/programming-essentials/how-to-manage-a-checkbox-with-react-hooks-f8c3d973eeca
+
+https://stackoverflow.com/questions/68962452/how-can-i-get-the-value-of-the-checkbox-to-be-saved-in-the-firestore/68963758?noredirect=1#comment121880466_68963758
+
+
+
 
 ## Known Bugs 
 * As of 8/27/2022, no known bugs
