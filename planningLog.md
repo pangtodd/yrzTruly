@@ -38,6 +38,14 @@ A react app to help you say that special thing to that not-so-special someone.
 * Tues, 9/20: completed hooks and initial firebase connection under "hooks" branch. merged that to main branch once it was working, and created a save point branch of "preAuth".
 * Thurs, 9/22: connected app to firebase. Looking into how to handle roles- I want to have three tiers- unathenticated user (can request/read single greetings), authenticated user (can request/read single greetings, can create suggestion, maybe can up/down vote), admin with full CRUD ability. Looking into how to set up authorization, not well covered in cirriculum. Seems like I need to have custom claims and provide auth token. this video was a good starting point (need to re-watch):  https://www.youtube.com/watch?v=3hj_r_N0qMs
 
+* Fri, 9/23: Decided to try to figure out the checkboxes. started Checkbox branch, and looking into how it works...following links are helpful, but trying to figure out if it's over kill or not:
+
+http://react.tips/checkboxes-in-react/
+
+https://www.robinwieruch.de/react-checkbox/
+
+https://www.freecodecamp.org/news/how-to-work-with-multiple-checkboxes-in-react/
+
 
 ## Known Bugs 
 * As of 8/27/2022, no known bugs
