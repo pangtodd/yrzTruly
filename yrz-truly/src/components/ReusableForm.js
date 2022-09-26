@@ -1,9 +1,32 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import CheckyBoxes from "./Checkbox";
+
+const allRelations = [
+  {name:"co-worker"},
+  {name:"friend"},
+  {name:"family member"},
+];
+
+const allOccasions  = [
+  {name:"birthday"},
+  {name:"thank you"},
+  {name:"get well"},
+  {name:"farwell"},
+  {name:"welcome Aboard"},
+  {name:"sorry/sympathy"},
+] 
 
 function ReusableForm(props) {
   return(
     <React.Fragment>
+      <CheckyBoxes
+      const allOptions = {[
+        {name:"co-worker"},
+        {name:"friend"},
+        {name:"family member"},
+      ]}
+        />
     <form onSubmit ={props.formSubmissionHandler}>
     <input 
         type='text'

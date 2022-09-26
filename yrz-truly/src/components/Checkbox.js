@@ -1,18 +1,18 @@
 import { useState } from "react";
 
 const allRelations = [
-  {name:"co-worker"},
-  {name:"friend"},
-  {name:"family member"},
+  {name:"co-worker", checked: false},
+  {name:"friend", checked: false},
+  {name:"family member", checked: false},
 ]
 
 const allOccasions  = [
-  {name:"birthday"},
-  {name:"thank you"},
-  {name:"get well"},
-  {name:"farwell"},
-  {name:"welcome Aboard"},
-  {name:"sorry/sympathy"},
+  {name:"birthday", checked: false},
+  {name:"thank you",checked: false},
+  {name:"get well", checked: false},
+  {name:"farwell", checked: false},
+  {name:"welcome Aboard",checked: false},
+  {name:"sorry/sympathy", checked: false},
 ]
 
 export const Checkbox =({ isChecked, label, checkHandler, index})=>{
@@ -53,11 +53,12 @@ function CheckyBoxes(){
           index={index}
           />
       ))}
-      <p>
+      <p> 
+        {console.log(relations)}
         <pre>{JSON.stringify(relations, null, 2)}</pre>
       </p>
     </div>
   )
 }
 
-export default CheckyBoxes;
+export default CheckyBoxes
