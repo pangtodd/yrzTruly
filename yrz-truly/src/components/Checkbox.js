@@ -1,21 +1,8 @@
 import { useState } from "react";
 
-const allRelations = [
-  {name:"co-worker", checked: false},
-  {name:"friend", checked: false},
-  {name:"family member", checked: false},
-]
 
-const allOccasions  = [
-  {name:"birthday", checked: false},
-  {name:"thank you",checked: false},
-  {name:"get well", checked: false},
-  {name:"farwell", checked: false},
-  {name:"welcome Aboard",checked: false},
-  {name:"sorry/sympathy", checked: false},
-]
 
-export const Checkbox =({ isChecked, label, checkHandler, index})=>{
+const Checkbox =({ isChecked, label, checkHandler, index})=>{
   return(
     <div>
       <input
@@ -29,33 +16,36 @@ export const Checkbox =({ isChecked, label, checkHandler, index})=>{
   )
 }
 
-function CheckyBoxes(){
-  const [relations, setRelations]= useState(allRelations)
-
+function CheckyBoxes(props){
+  const [options, setOptions]= useState(props.inputs.map((option)=>(
+    {...option, checked: false}
+  )));
+//
   const updateCheckStatus = index=> {
-    setRelations(
-      relations.map((relation, currentIndex)=>
+    setOptions(
+      options.map((option, currentIndex)=>
       currentIndex ===index
-        ?{...relation, checked: !relation.checked}
-        :relation
+        ?{...option, checked: !option.checked}
+        :option
       )
     )
   }
 
+
+
   return(
-    <div className="app">
-      {relations.map((relation, index)=>(
+    <div className="relations">
+      {options.map((option, index)=>(
         <Checkbox
-          key={relation.name}
-          isChecked={relation.checked}
+          key={option.name}
+          isChecked={option.checked}
           checkHandler={()=>updateCheckStatus(index)}
-          label={relation.name}
+          label={option.name}
           index={index}
           />
       ))}
       <p> 
-        {console.log(relations)}
-        <pre>{JSON.stringify(relations, null, 2)}</pre>
+        <pre>{JSON.stringify(options, null, 2)}</pre>
       </p>
     </div>
   )

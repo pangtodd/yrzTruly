@@ -12,135 +12,32 @@ const allOccasions  = [
   {name:"birthday"},
   {name:"thank you"},
   {name:"get well"},
-  {name:"farwell"},
+  {name:"farewell"},
   {name:"welcome Aboard"},
   {name:"sorry/sympathy"},
 ] 
 
 function ReusableForm(props) {
   return(
+
     <React.Fragment>
-      <CheckyBoxes
-      const allOptions = {[
-        {name:"co-worker"},
-        {name:"friend"},
-        {name:"family member"},
-      ]}
-        />
-    <form onSubmit ={props.formSubmissionHandler}>
-    <input 
-        type='text'
-        name='relation'
-        placeholder='who is this message for?'/>
+      <form onSubmit ={props.formSubmissionHandler}>
+        <h3> Who is this message for?</h3>
+        <CheckyBoxes inputs = {allRelations}
+          />
+          <h3>What occasion(s) does this message address?</h3>
+        <CheckyBoxes inputs ={allOccasions}
+          />  
+        <h3>And finally, please share your greeting!</h3>
+        <textarea
+          name= 'message'
+          placeholder='your message'/>
+          <br></br>
+          <br></br>
+        <button type='submit'>Submit greeting</button>
         <br></br>
         <br></br>
-      <input
-        type='text'
-        name='occasion'
-        placeholder='occasion?'/>
-        <br></br>
-        <br></br>
-      {/* <label>
-      <h3>Who is this message good for? Click all that apply.</h3>
-        <input 
-        type='checkbox'
-        name='relation'
-        value='co-worker'/>
-        co-worker
-      </label>
-      <br></br>
-      <label>
-        <input 
-        type='checkbox'
-        name='relation'
-        value='friend'/>
-        friend
-      </label>
-      <br></br>
-      <label>
-        <input 
-        type='checkbox'
-        name='relation'
-        value='family member'/>
-        family member
-      </label>
-      <br></br>
-      
-      <h3>What occasion is this message appropriate for? Click all that apply.</h3>
-      <label>
-        <input 
-        type='checkbox'
-        name='occasion'
-        value='birthday'/>
-        Birthday
-      </label>
-      <br/>
-      <label>
-        <input 
-        type='checkbox'
-        name='occasion'
-        value='thank you'/>
-        Thank you
-      </label>
-      <br></br>
-      <label>
-        <input 
-        type='checkbox'
-        name='occasion'
-        value='congratulations'/>
-        Congratulations
-      </label>
-      <br></br>
-      <label>
-        <input 
-        type='checkbox'
-        name='occasion'
-        value='get well'/>
-        Get Well
-      </label>
-      <br></br>
-      <label>
-        <input 
-        type='checkbox'
-        name='occasion'
-        value='farewell'/>
-        Farewell
-      </label>
-      <br></br>
-      <label>
-        <input 
-        type='checkbox'
-        name='occasion'
-        value='farewell'/>
-        Welcome aboard
-      </label>
-      <br></br>
-      <label>
-        <input 
-        type='checkbox'
-        name='occasion'
-        value='appreciation'/>
-        Appreciation
-      </label>
-      <br></br>
-      <label>
-        <input 
-        type='checkbox'
-        name='occasion'
-        value='sympathy'/>
-        Sorry/sympathy
-      </label>
-      <br></br> */}
-      <h3>And finally, please share your greeting!</h3>
-      <textarea
-        name= 'message'
-        placeholder='your message'/>
-        <br></br>
-        <br></br>
-      <button type='submit'>Submit greeting</button>
-      <br></br>
-      <br></br>
-    </form>
+      </form>
   </React.Fragment>
   );
 }
