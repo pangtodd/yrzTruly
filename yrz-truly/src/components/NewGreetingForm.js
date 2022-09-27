@@ -4,11 +4,23 @@ import ReusableForm from "./ReusableForm";
 
 function NewGreetingForm(props){
 
+  function handleCheckboxValues(checkboxType){
+    const checkyboxes =document.getElementsByName(checkboxType);
+    let result = "";
+    for (var i =0; i< checkyboxes.length; i++){
+      console.log(checkyboxes[i].checked)
+      if (checkyboxes[i].checked){
+        result+= checkyboxes[i].value+", ";
+      }
+    }
+    return result.slice(0, -2);
+  }
+
   function handleNewGreetingFormSubmission(event){
     event.preventDefault();
     props.onNewGreetingCreation({
-      relation: event.target.relation.value,
-      occasion: event.target.occasion.value,
+      relation: handleCheckboxValues("relation"),
+      occasion: handleCheckboxValues("occasion"),
       message: event.target.message.value,
     });
     
