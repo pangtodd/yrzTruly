@@ -10,6 +10,7 @@ const allRelations = [
 
 const allOccasions  = [
   {name:"occasion", value:"birthday"},
+  {name:"occasion", value:"congratulations"},
   {name:"occasion", value:"thank you"},
   {name:"occasion", value:"get well"},
   {name:"occasion", value:"farewell"},
