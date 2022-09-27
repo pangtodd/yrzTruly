@@ -3,31 +3,28 @@ import PropTypes from "prop-types";
 import CheckyBoxes from "./Checkbox";
 
 const allRelations = [
-  {name:"co-worker"},
-  {name:"friend"},
-  {name:"family member"},
+  {name:"relation", value: "co-worker"},
+  {name:"relation", value:"friend"},
+  {name:"relation", value:"family member"},
 ];
 
 const allOccasions  = [
-  {name:"birthday"},
-  {name:"thank you"},
-  {name:"get well"},
-  {name:"farewell"},
-  {name:"welcome Aboard"},
-  {name:"sorry/sympathy"},
+  {name:"occasion", value:"birthday"},
+  {name:"occasion", value:"thank you"},
+  {name:"occasion", value:"get well"},
+  {name:"occasion", value:"farewell"},
+  {name:"occasion", value:"welcome Aboard"},
+  {name:"occasion", value:"sorry/sympathy"},
 ] 
 
 function ReusableForm(props) {
   return(
-
     <React.Fragment>
       <form onSubmit ={props.formSubmissionHandler}>
         <h3> Who is this message for?</h3>
-        <CheckyBoxes inputs = {allRelations}
-          />
-          <h3>What occasion(s) does this message address?</h3>
-        <CheckyBoxes inputs ={allOccasions}
-          />  
+        <CheckyBoxes inputs = {allRelations} />
+        <h3>What occasion(s) does this message address?</h3>
+        <CheckyBoxes inputs ={allOccasions}/>  
         <h3>And finally, please share your greeting!</h3>
         <textarea
           name= 'message'
