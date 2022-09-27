@@ -2,12 +2,14 @@ import { useState } from "react";
 
 
 
-const Checkbox =({ isChecked, label, checkHandler, index})=>{
+const Checkbox =({ isChecked, label, name, value, checkHandler, index})=>{
   return(
     <div>
       <input
         type="checkbox"
         id={`checkbox-${index}`}
+        name={name}
+        value={value}
         checked = {isChecked}
         onChange={checkHandler}
         />
@@ -31,22 +33,22 @@ function CheckyBoxes(props){
     )
   }
 
-
-
   return(
-    <div className="relations">
+    <div className="checkboxOptions">
       {options.map((option, index)=>(
         <Checkbox
-          key={option.name}
+          key={option.value}
           isChecked={option.checked}
           checkHandler={()=>updateCheckStatus(index)}
-          label={option.name}
+          label={option.value}
+          name={option.name}
+          value={option.value}
           index={index}
           />
       ))}
-      <p> 
+      {/* <p> 
         <pre>{JSON.stringify(options, null, 2)}</pre>
-      </p>
+      </p> */}
     </div>
   )
 }
