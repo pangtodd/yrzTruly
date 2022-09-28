@@ -60,6 +60,10 @@ https://medium.com/programming-essentials/how-to-manage-a-checkbox-with-react-ho
 
 https://stackoverflow.com/questions/68962452/how-can-i-get-the-value-of-the-checkbox-to-be-saved-in-the-firestore/68963758?noredirect=1#comment121880466_68963758
 
+* Monday, 9/26 : more research, started to at least put some code in. Talked over process with instructor Christy at class, got some good feedback/advice.
+* Tuesday, 9/27 : implemented the checkboxes, merged checkbox branch to main.
+
+
 
 
 
