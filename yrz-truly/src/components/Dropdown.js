@@ -1,12 +1,25 @@
 import { useState } from "react";
 
-const DroppyDown = ()=> {
+const DropDown =({ label, value, options, onChange })=> {
+  return(
+    <label>
+      {label}
+      <select value={value} onChange={onChange}>
+        {options.map((option)=>(
+          <option value ={option.value}>{option.label}</option>
+        ))}
+      </select>
+    </label>
+  );
+};
 
+const DroppyDown = ()=> {
   const options = [
-    {label: "co-worker", value:"co-worker"},
-    {label: "friend", value: "friend"},
-    {label: "family member", value: "family member"},
-  ]
+    { label: 'Fruit', value: 'fruit' },
+    { label: 'Vegetable', value: 'vegetable' },
+    { label: 'Meat', value: 'meat' },
+  ];
+
   const [value, setValue]= useState("co-worker");
 
   const handleChange= (event)=> {
@@ -14,21 +27,18 @@ const DroppyDown = ()=> {
   };
 
   return(
-    <div>
-      <label>
-        who is this greeting for?
-        <br/>
-        <br/>
-        <select value={value} onChange={handleChange}>
-          {options.map((option)=>(
-            <option value= {option.value}>{option.label}</option>
-          ))}
-        </select>
-      </label>
+    <div className="dropdownOptions">
+      <DropDown
+        label="select audience/occasion"
+        options={options}
+        value={value}
+        onChange={handleChange}
+        />
       <p>you selected {value}</p>
     </div>
   );
 };
+
 
 
 export default DroppyDown;
