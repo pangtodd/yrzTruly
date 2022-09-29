@@ -62,7 +62,7 @@ https://stackoverflow.com/questions/68962452/how-can-i-get-the-value-of-the-chec
 
 * Monday, 9/26 : more research, started to at least put some code in. Talked over process with instructor Christy at class, got some good feedback/advice.
 * Tuesday, 9/27 : implemented the checkboxes, merged checkbox branch to main.
-
+* Weds, 9/28 : established API branch, going to try to get a page/feature that pulls API information of the day's celebrity birthdays.
 
 
 
