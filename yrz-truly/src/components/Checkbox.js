@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-
-
 const Checkbox =({ isChecked, label, name, value, checkHandler, index})=>{
   return(
     <div>
