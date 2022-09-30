@@ -13,14 +13,10 @@ const DropDown =({ label, value, options, onChange })=> {
   );
 };
 
-const DroppyDown = ()=> {
-  const options = [
-    { label: 'Fruit', value: 'fruit' },
-    { label: 'Vegetable', value: 'vegetable' },
-    { label: 'Meat', value: 'meat' },
-  ];
+function DroppyDown(props){
+  
 
-  const [value, setValue]= useState("co-worker");
+  const [value, setValue]= useState();
 
   const handleChange= (event)=> {
     setValue(event.target.value);
@@ -29,8 +25,7 @@ const DroppyDown = ()=> {
   return(
     <div className="dropdownOptions">
       <DropDown
-        label="select audience/occasion"
-        options={options}
+        options={props.options}
         value={value}
         onChange={handleChange}
         />
@@ -38,7 +33,5 @@ const DroppyDown = ()=> {
     </div>
   );
 };
-
-
 
 export default DroppyDown;
