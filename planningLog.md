@@ -66,6 +66,10 @@ https://stackoverflow.com/questions/68962452/how-can-i-get-the-value-of-the-chec
 
 https://celebritybucks.com/developers/birthdays/JSON
 
+* Thurs, 9/29 : figured out dropdown component, started building landing page.
+* Friday, 9/30 : continued building landing page.
+* Sunday, 10/2 : Ugh, realzied I needed data to be stored in Firestore insde of arrays (were strings). Refactored inputs and displays to work correctly.
+
 
 
 
