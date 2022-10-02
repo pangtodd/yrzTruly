@@ -3,6 +3,7 @@ import Greeting from "./Greeting";
 import PropTypes from "prop-types";
 
 function GreetingList(props){
+
   return(
     <React.Fragment>
       <hr/>
