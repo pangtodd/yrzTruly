@@ -4,6 +4,7 @@ import GreetingList from './GreetingList';
 import GreetingDetail from './GreetingDetail';
 import EditGreetingForm from './EditGreetingForm';
 import { db, auth } from './../firebase.js';
+import LandingPage from './LandingPage'
 import { collection, addDoc, doc, updateDoc, onSnapshot, deleteDoc } from 'firebase/firestore';
 
 function GreetingControl(){
@@ -78,6 +79,7 @@ let buttonText = null;
 if (auth.currentUser == null){
   return(
     <React.Fragment>
+      <LandingPage />
       <h1>You must be signed in to access editting ability.</h1>
     </React.Fragment>
   )
@@ -113,7 +115,6 @@ if (auth.currentUser == null){
       buttonText= "add greeting"
   }
 
-    
     return(
       <React.Fragment>
         {currentlyVisibleState}
