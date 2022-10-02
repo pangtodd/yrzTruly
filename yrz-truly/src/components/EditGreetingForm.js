@@ -7,13 +7,13 @@ function EditGreetingForm(props){
   
   function handleCheckboxValues(checkboxType){
     const checkyboxes =document.getElementsByName(checkboxType);
-    let result = "";
+    let result = [];
     for (var i =0; i< checkyboxes.length; i++){
       if (checkyboxes[i].checked){
-        result+= checkyboxes[i].value+", ";
+        result.push(checkyboxes[i].value);
       }
     }
-    return result.slice(0, -2);
+    return result;
   }
 
   function handleEditGreetingFormSubmission(event){
