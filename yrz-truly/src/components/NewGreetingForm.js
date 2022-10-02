@@ -8,7 +8,6 @@ function NewGreetingForm(props){
     const checkyboxes =document.getElementsByName(checkboxType);
     let result = "";
     for (var i =0; i< checkyboxes.length; i++){
-      console.log(checkyboxes[i].checked)
       if (checkyboxes[i].checked){
         result+= checkyboxes[i].value+", ";
       }
