@@ -73,15 +73,14 @@ useEffect(()=> {
     setSelectedGreeting(null);
     };
 
+
 let currentlyVisibleState = null;
 let buttonText = null;
 
 if (auth.currentUser == null){
   return(
-    <React.Fragment>
-      <LandingPage />
-      <h1>You must be signed in to access editting ability.</h1>
-    </React.Fragment>
+    <LandingPage 
+    greetingList ={mainGreetingList} />
   )
 } else if (auth.currentUser != null) {
   let currentlyVisibleState = null;

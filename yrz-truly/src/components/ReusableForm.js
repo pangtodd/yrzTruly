@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import CheckyBoxes from "./Checkbox";
-import DroppyDown from './Dropdown';
 
 const allRelations = [
   {name:"relation", value: "co-worker"},
@@ -19,22 +18,6 @@ const allOccasions  = [
   {name:"occasion", value:"sorry/sympathy"},
 ] 
 
-const relation = [
-  { label: 'co-worker', value: 'co-worker' },
-  { label: 'friend', value: 'friend' },
-  { label: 'family member', value: 'family member' },
-];
-
-const occasion= [
-  {label:"birthday", value:"birthday"},
-  {label:"congratulation", value:"congratulations"},
-  {label:"thank you", value:"thank you"},
-  {label:"get well", value:"get well"},
-  {label:"farwell", value:"farewell"},
-  {label:"welcome aboard", value:"welcome aboard"},
-  {label:"sympathy", value:"sympathy"},
-]
-
 function ReusableForm(props) {
   return(
     <React.Fragment>
@@ -50,15 +33,6 @@ function ReusableForm(props) {
           <br></br>
           <br></br>
         <button type='submit'>Submit greeting</button>
-        <br></br>
-        <br></br>
-        <h3>who is this for?</h3>
-        <DroppyDown options={relation} />
-        <br></br>
-        <br></br>
-        <h3>what is the occasion?</h3>
-        <DroppyDown options={occasion} />
-
       </form>
   </React.Fragment>
   );
