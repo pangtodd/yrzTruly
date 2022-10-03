@@ -1,7 +1,7 @@
 import React from "react";
 import DroppyDown from "./Dropdown";
-import { query, collection, where, getDocs } from 'firebase/firestore'
-import { db } from './../firebase.js'
+import PropTypes from "prop-types";
+
 
 // const q = query(
 //   collection(db, "greetings"), 
@@ -25,28 +25,45 @@ const occasion= [
   {label:"sympathy", value:"sympathy"},
 ]
 
-function handleGreetingDisplay(){
-
-}
 
 
-function LandingPage(){
+
+
+function LandingPage(props){
+  const inputRelation = "co-worker";
+  const inputOccasion = "Birthday";
+
+  function filteredGreeting(inputOccasion, inputRelation){
+    const newBigArray= props.greetingList.filter(greeting=>greeting.occasion === inputOccasion);
+    const newFilteredArray= newBigArray.filter(greeting=>greeting.relation === inputRelation);
+    const filteredGreeting = newFilteredArray[Math.floor(Math.random() * newFilteredArray.length)]
+  };
+  
+  function handleGreetingDisplay(){
+
+  };
+
+
   return(
     <React.Fragment>
       <form onSubmit = {handleGreetingDisplay}>
         <h1>Say something special to that not-so-special someone.</h1>
-        <p>Someone just hand you a folder at work. Hiding inside is a card for you to sign, Brenda from Accounting's birthday is today. Ugh. No idea what to write.</p>
-        <p>They probably won't read it, but in the off chance they do, use one of our suggestions to come off as clever and thoughtful.</p>
+        <p>Someone hands you a folder at work. Hiding inside is a card for you to sign, it's Brenda from Accounting's birthday. Ugh. No idea what to write.</p>
+        <p>They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
 
         <h3>who is this for?</h3>
         <DroppyDown options={relation} />
         <br></br>
         <h3>what is the occasion?</h3>
         <DroppyDown options={occasion} />
+        <p>{filteredGreeting(inputOccasion, inputRelation)}</p>
       </form>
     </React.Fragment>
-  )
+  );
+}
 
+LandingPage.propTypes={
+  greetingList: PropTypes.array
 }
 
 export default LandingPage;
