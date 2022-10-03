@@ -3,12 +3,6 @@ import DroppyDown from "./Dropdown";
 import PropTypes from "prop-types";
 
 
-// const q = query(
-//   collection(db, "greetings"), 
-//   where("occasion", "in", `${inputOccasion}`),
-//   where("relation", "in", `${inputRelation}`)
-// );
-
 const relation = [
   { label: 'co-worker', value: 'co-worker' },
   { label: 'friend', value: 'friend' },
@@ -26,21 +20,18 @@ const occasion= [
 ]
 
 
-
-
-
 function LandingPage(props){
   const inputRelation = "co-worker";
   const inputOccasion = "Birthday";
 
-  function filteredGreeting(inputOccasion, inputRelation){
-    const newBigArray= props.greetingList.filter(greeting=>greeting.occasion === inputOccasion);
-    const newFilteredArray= newBigArray.filter(greeting=>greeting.relation === inputRelation);
+  const filteredGreeting= function(inputOccasion, inputRelation){
+    const newBigArray= props.greetingList.filter(greeting=>{return greeting.occasion.includes(inputOccasion)});
+    const newFilteredArray= newBigArray.filter(greeting=>{return greeting.relation.includes(inputRelation)});
     const filteredGreeting = newFilteredArray[Math.floor(Math.random() * newFilteredArray.length)]
   };
   
-  function handleGreetingDisplay(){
-
+  function handleGreetingDisplay(event){
+    // event.preventDefault();
   };
 
 
@@ -52,12 +43,12 @@ function LandingPage(props){
         <p>They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
 
         <h3>who is this for?</h3>
-        <DroppyDown options={relation} />
+        <DroppyDown options={relation} label = {"relation"} />
         <br></br>
         <h3>what is the occasion?</h3>
-        <DroppyDown options={occasion} />
-        <p>{filteredGreeting(inputOccasion, inputRelation)}</p>
+        <DroppyDown options={occasion} label= {"occasion"}/>
       </form>
+      {filteredGreeting("birthday", "co-worker")}
     </React.Fragment>
   );
 }
