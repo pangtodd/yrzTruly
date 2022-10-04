@@ -19,21 +19,35 @@ const occasion= [
   {label:"sympathy", value:"sympathy"},
 ]
 
+// const inputOccation= "birthday";
+// const inputRelation= "co-worker";
 
 function LandingPage(props){
-  const inputRelation = "co-worker";
-  const inputOccasion = "Birthday";
+  // const inputRelation = "co-worker";
+  // const inputOccasion = "Birthday";
 
   const filteredGreeting= function(inputOccasion, inputRelation){
     const newBigArray= props.greetingList.filter(greeting=>{return greeting.occasion.includes(inputOccasion)});
     const newFilteredArray= newBigArray.filter(greeting=>{return greeting.relation.includes(inputRelation)});
-    const filteredGreeting = newFilteredArray[Math.floor(Math.random() * newFilteredArray.length)]
+    return newFilteredArray[Math.floor(Math.random() * newFilteredArray.length)];
   };
   
   function handleGreetingDisplay(event){
-    // event.preventDefault();
+    event.preventDefault();
+    const selectOccasionElement = document.getElementById('occasion').value;
+    const selectRelationElement = document.getElementById('relation').value;
+    const quote = filteredGreeting(selectOccasionElement,selectRelationElement);
+    document.getElementById('output').innerHTML = quote.message;
+    // 
+
+    // const inputOccasion = "birthday";
+    // const inputRelation = "co-worker";
+    // const quote = filteredGreeting(inputOccasion, inputRelation);
+    // let answer= quote.message;
+    // console.log(answer)
   };
 
+ 
 
   return(
     <React.Fragment>
@@ -47,8 +61,10 @@ function LandingPage(props){
         <br></br>
         <h3>what is the occasion?</h3>
         <DroppyDown options={occasion} label= {"occasion"}/>
+        <button type = 'submit'>Get message!</button>
       </form>
-      {filteredGreeting("birthday", "co-worker")}
+      <h1 id="output"></h1>
+      
     </React.Fragment>
   );
 }
