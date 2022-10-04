@@ -14,7 +14,7 @@ const occasion= [
   {label:"congratulation", value:"congratulations"},
   {label:"thank you", value:"thank you"},
   {label:"get well", value:"get well"},
-  {label:"farwell", value:"farewell"},
+  {label:"farewell", value:"farewell"},
   {label:"welcome aboard", value:"welcome aboard"},
   {label:"sympathy", value:"sympathy"},
 ]
