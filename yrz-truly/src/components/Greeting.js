@@ -17,9 +17,9 @@ function Greeting(props){
 }
 
 Greeting.propTypes ={
-  relation: PropTypes.string,
+  relation: PropTypes.array,
   message: PropTypes.string,
-  occasion: PropTypes.string,
+  occasion: PropTypes.array,
   id: PropTypes.string,
   whenGreetingClicked: PropTypes.func
 }
