@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const BannerImgTamer = styled.img.attrs(props =>({
   src: props.Img|| bannerImage,
 }))`
-  max-width: 80%;
+  max-width: 100%;
   height: auto;
 `;
 
@@ -16,7 +16,10 @@ function Header(){
       <BannerImgTamer>
       </BannerImgTamer>
       <hr/>
-      <p><Link to="/">Home</Link> <Link to="/sign-in"> Sign In</Link></p>
+      <p> <Link to="/"> Home </Link> 
+          <Link to="/sign-in"> Sign In </Link>
+          <Link to="/list"> full list </Link>
+      </p>
       {/* figure out how to space/stylize later, please. */}
       <hr/>
     </React.Fragment>
