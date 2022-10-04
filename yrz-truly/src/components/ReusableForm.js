@@ -14,8 +14,8 @@ const allOccasions  = [
   {name:"occasion", value:"thank you"},
   {name:"occasion", value:"get well"},
   {name:"occasion", value:"farewell"},
-  {name:"occasion", value:"welcome Aboard"},
-  {name:"occasion", value:"sorry/sympathy"},
+  {name:"occasion", value:"welcome aboard"},
+  {name:"occasion", value:"sympathy"},
 ] 
 
 function ReusableForm(props) {
