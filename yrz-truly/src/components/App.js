@@ -11,11 +11,10 @@ function App(){
       <Header />
       <Routes>
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/" element={<LandingPage />}/>
-        <Route path="/list" element ={<GreetingControl />}/>
-      </Routes>      
+        <Route path="/" element={<GreetingControl />}/>
+      </Routes>
     </Router>
   );
 }
 
-export default App;rails
+export default App;

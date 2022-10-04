@@ -1,8 +1,11 @@
 import React from "react";
 import DroppyDown from "./Dropdown";
 import PropTypes from "prop-types";
+import styled from 'styled-components';
 
-
+const TestFonty = styled.p`
+  font-family: "Goudy Bookletter 1911", sans-serif; 
+`;
 const relation = [
   { label: 'co-worker', value: 'co-worker' },
   { label: 'friend', value: 'friend' },
@@ -19,12 +22,8 @@ const occasion= [
   {label:"sympathy", value:"sympathy"},
 ]
 
-// const inputOccation= "birthday";
-// const inputRelation= "co-worker";
 
 function LandingPage(props){
-  // const inputRelation = "co-worker";
-  // const inputOccasion = "Birthday";
 
   const filteredGreeting= function(inputOccasion, inputRelation){
     const newBigArray= props.greetingList.filter(greeting=>{return greeting.occasion.includes(inputOccasion)});
@@ -38,13 +37,6 @@ function LandingPage(props){
     const selectRelationElement = document.getElementById('relation').value;
     const quote = filteredGreeting(selectOccasionElement,selectRelationElement);
     document.getElementById('output').innerHTML = quote.message;
-    // 
-
-    // const inputOccasion = "birthday";
-    // const inputRelation = "co-worker";
-    // const quote = filteredGreeting(inputOccasion, inputRelation);
-    // let answer= quote.message;
-    // console.log(answer)
   };
 
  
@@ -52,10 +44,11 @@ function LandingPage(props){
   return(
     <React.Fragment>
       <form onSubmit = {handleGreetingDisplay}>
-        <h1>Say something special to that not-so-special someone.</h1>
-        <p>Someone hands you a folder at work. Hiding inside is a card for you to sign, it's Brenda from Accounting's birthday. Ugh. No idea what to write.</p>
-        <p>They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
-
+          <h1>Say something special to that not-so-special someone.</h1>
+        <TestFonty>
+          <p>Someone hands you a folder at work. Hiding inside is a card for you to sign, it's Brenda from Accounting's birthday. Ugh. No idea what to write.</p>
+          <p>They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
+        </TestFonty>
         <h3>who is this for?</h3>
         <DroppyDown options={relation} label = {"relation"} />
         <br></br>

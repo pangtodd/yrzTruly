@@ -18,7 +18,6 @@ function Header(){
       <hr/>
       <p> <Link to="/"> Home </Link> 
           <Link to="/sign-in"> Sign In </Link>
-          <Link to="/list"> full list </Link>
       </p>
       {/* figure out how to space/stylize later, please. */}
       <hr/>
