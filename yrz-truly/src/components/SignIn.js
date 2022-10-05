@@ -13,7 +13,8 @@ function SignIn(){
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    createUserWithEmailAndPassword(auth, email, password)
+    const displayName = event.target.displayName.value;
+    createUserWithEmailAndPassword(auth, email, password, displayName)
       .then((userCredential)=>{
         setSignUpSuccess(`You've successfully signed up, ${userCredential.user.email}.`)
       })
@@ -57,6 +58,12 @@ function SignIn(){
           <br/>
           <br/>
         <input
+          type="displayName"
+          name="displayName"
+          placeholder="display name" />
+          <br/>
+          <br/>
+          <input
           type="password"
           name="password"
           placeholder="password" />
