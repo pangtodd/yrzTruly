@@ -3,8 +3,8 @@ import DroppyDown from "./Dropdown";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
 
-const TestFonty = styled.p`
-  font-family: "Goudy Bookletter 1911", sans-serif; 
+const TestFonty = styled.h1`
+  font-family: Garamond, serif;
 `;
 const relation = [
   { label: 'co-worker', value: 'co-worker' },
@@ -39,16 +39,12 @@ function LandingPage(props){
     document.getElementById('output').innerHTML = quote.message;
   };
 
- 
-
   return(
     <React.Fragment>
       <form onSubmit = {handleGreetingDisplay}>
           <h1>Say something special to that not-so-special someone.</h1>
-        <TestFonty>
           <p>Someone hands you a folder at work. Hiding inside is a card for you to sign, it's Brenda from Accounting's birthday. Ugh. No idea what to write.</p>
           <p>They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
-        </TestFonty>
         <h3>who is this for?</h3>
         <DroppyDown options={relation} label = {"relation"} />
         <br></br>
@@ -56,8 +52,9 @@ function LandingPage(props){
         <DroppyDown options={occasion} label= {"occasion"}/>
         <button type = 'submit'>Get message!</button>
       </form>
-      <h1 id="output"></h1>
-      
+      <TestFonty>
+        <h1 id="output"></h1>
+      </TestFonty>
     </React.Fragment>
   );
 }
