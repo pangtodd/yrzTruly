@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth } from './../firebase.js';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, getAuth } from "firebase/auth";
 
 
 function SignIn(){
@@ -13,14 +13,24 @@ function SignIn(){
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    const displayName = event.target.displayName.value;
-    createUserWithEmailAndPassword(auth, email, password, displayName)
-      .then((userCredential)=>{
-        setSignUpSuccess(`You've successfully signed up, ${userCredential.user.email}.`)
+    const displayerName = event.target.displayName.value;
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential)=>{
+        updateProfile(userCredential.user,{
+          displayName: displayerName
+        }).then(()=>{
+          setSignUpSuccess(`You successfully signed up, ${userCredential.user.displayName}`)
+        })
+        .catch((error)=>{
+          setSignUpSuccess(`There was a problem signing up:  ${error.message}. :(`)
+        });
       })
       .catch((error)=>{
         setSignUpSuccess(`There was a problem signing up: ${error.message}. :(`)
       });
+    
+    
+    
   }
 
   function doSignIn(event){
@@ -48,6 +58,7 @@ function SignIn(){
 
   return(
     <React.Fragment>
+      {console.log(auth.currentUser)}
       <h1>Sign up</h1>
       {signUpSuccess}
       <form onSubmit={doSignUp}>
