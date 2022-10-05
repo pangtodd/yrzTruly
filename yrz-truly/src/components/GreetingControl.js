@@ -78,10 +78,17 @@ let currentlyVisibleState = null;
 let buttonText = null;
 
 if (auth.currentUser == null){
+  if(selectedGreeting == null){
   return(
     <LandingPage 
     greetingList ={mainGreetingList} />
   )
+  } else {
+    return(
+      <GreetingDetail 
+      greeting ={selectedGreeting} />
+    )
+  }
 } else if (auth.currentUser != null) {
   let currentlyVisibleState = null;
   let buttonText =null;
