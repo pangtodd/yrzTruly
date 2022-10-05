@@ -69,6 +69,8 @@ https://celebritybucks.com/developers/birthdays/JSON
 * Thurs, 9/29 : figured out dropdown component, started building landing page.
 * Friday, 9/30 : continued building landing page.
 * Sunday, 10/2 : Ugh, realzied I needed data to be stored in Firestore insde of arrays (were strings). Refactored inputs and displays to work correctly.
+* Monday, 10/3 : double ugh. I thought I need to make a database querry to get a random entry back...realized I can just use state. Could have kept strings. Anyway, refactored everythign to work. Figured out methods to filter entries via user input and how to display it on landing page.
+* Tuesday, 10/4 : Spent a lot of time figuring out how to get a user's display name entred into Firebase. Finally got it working. Now need to figure out how to add it automatically to a new entry.
 
 
 
