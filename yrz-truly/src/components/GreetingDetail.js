@@ -7,8 +7,8 @@ function GreetingDetail(props){
   return(
     <React.Fragment>
       <h1>Greeting Detail</h1>
-      <h3>relationship to card recipeient: {greeting.relation.toString().replaceAll(",",", ")}</h3>
-      <h3>ocassion for card: {greeting.occasion.toString().replaceAll(",",", ")}</h3>
+      <h3>relationship: {greeting.relation.toString().replaceAll(",",", ")}</h3>
+      <h3>ocassion: {greeting.occasion.toString().replaceAll(",",", ")}</h3>
       <h3>greeting: {greeting.message}</h3>
       <button onClick={ onClickingEdit}>Update greeting </button>
       <br/>
