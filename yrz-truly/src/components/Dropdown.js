@@ -30,7 +30,6 @@ function DroppyDown(props){
         value={value}
         onChange={handleChange}
         />
-      <p>you selected {value}</p>
     </div>
   );
 };

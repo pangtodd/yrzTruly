@@ -44,9 +44,6 @@ function CheckyBoxes(props){
           index={index}
           />
       ))}
-      {/* <p> 
-        <pre>{JSON.stringify(options, null, 2)}</pre>
-      </p> */}
     </div>
   )
 }
