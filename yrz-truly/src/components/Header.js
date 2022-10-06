@@ -2,6 +2,7 @@ import React from "react";
 import bannerImage from "./../img/yrzTruly.jpeg";
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const BannerImgTamer = styled.img.attrs(props =>({
   src: props.Img|| bannerImage,
@@ -16,10 +17,7 @@ function Header(){
       <BannerImgTamer>
       </BannerImgTamer>
       <hr/>
-      <p> <Link to="/"> Home </Link> 
-          <Link to="/sign-in"> Sign In </Link>
-      </p>
-      {/* figure out how to space/stylize later, please. */}
+      <Navbar />
       <hr/>
     </React.Fragment>
   );
