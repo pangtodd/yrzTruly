@@ -58,7 +58,6 @@ function SignIn(){
 
   return(
     <React.Fragment>
-      {console.log(auth.currentUser)}
       <h1>Sign up</h1>
       {signUpSuccess}
       <form onSubmit={doSignUp}>
