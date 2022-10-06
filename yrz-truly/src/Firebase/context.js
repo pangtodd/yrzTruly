@@ -4,7 +4,7 @@ import app from "./config";
 export const AuthContext = React.createContext();
 
 export const AuthProvider =({ children })=>{
-  const [user, setUser] = userState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(()=>{
     app.auth().onAuthStateChanged(setUser);
@@ -12,6 +12,6 @@ export const AuthProvider =({ children })=>{
 
 
 return(
-  <AuthContext.Provder value ={{user}}>{children}</AuthContext.Provder>
+  <AuthContext.Provider value ={{user}}>{children}</AuthContext.Provider>
   );
 };
