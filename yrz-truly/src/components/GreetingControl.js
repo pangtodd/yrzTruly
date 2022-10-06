@@ -25,6 +25,7 @@ useEffect(()=> {
             relation: doc.data().relation, 
             occasion: doc.data().occasion, 
             message: doc.data().message, 
+            author: doc.data().author,
             id: doc.id
           });
       });
