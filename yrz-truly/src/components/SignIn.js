@@ -1,12 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext} from "react";
 import { auth } from './../firebase.js';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, getAuth } from "firebase/auth";
 // newBelow
-import firebase from "firebase";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 import { AuthContext } from "../Firebase/context";
 
 function SignIn(){
-  const { user } = userContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [signUpSuccess, setSignUpSuccess]= useState(null);
   const [signInSuccess, setSignInSuccess]= useState(null);
   const [signOutSuccess, setSignOutSuccess]= useState(null);
