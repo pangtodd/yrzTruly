@@ -13,6 +13,7 @@ function GreetingList(props){
           relation={greeting.relation}
           occasion={greeting.occasion}
           message={greeting.message}
+          author={greeting.author}
           id={greeting.id}
           key={greeting.id} /> 
       )}
