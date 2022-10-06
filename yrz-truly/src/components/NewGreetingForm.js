@@ -1,8 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReusableForm from "./ReusableForm";
+import { auth } from './../firebase.js';
 
 function NewGreetingForm(props){
+
+  const user = auth.currentUser;
 
   function handleCheckboxValues(checkboxType){
     const checkyboxes =document.getElementsByName(checkboxType);
@@ -21,6 +24,7 @@ function NewGreetingForm(props){
       relation: handleCheckboxValues("relation"),
       occasion: handleCheckboxValues("occasion"),
       message: event.target.message.value,
+      author: user.displayName
     });
     
   }
