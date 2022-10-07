@@ -72,7 +72,9 @@ https://celebritybucks.com/developers/birthdays/JSON
 * Monday, 10/3 : double ugh. I thought I need to make a database querry to get a random entry back...realized I can just use state. Could have kept strings. Anyway, refactored everythign to work. Figured out methods to filter entries via user input and how to display it on landing page.
 * Tuesday, 10/4 : Spent a lot of time figuring out how to get a user's display name entred into Firebase. Finally got it working. Now need to figure out how to add it automatically to a new entry.
 * Weds, 10/5: figured out how to automatically add username to entry, also got it to display on entries. Now working on getting "approved" field in new sign up form...then need to figure out how to get an admin vs. signed in user.
+* Thurs, 10/6: Decided to scrap the admin user for the time being...too complicated for my timeframe if I'm going to continue with firebase authoriziation (which I am). Worked on Navbar and conditional rendering which quickly turned into using Context for keeping track of authorizaiton. Got that working with the help of this article:
 
+https://lo-victoria.com/introduction-to-react-context-api-with-firebase-authentication
 
 
 
