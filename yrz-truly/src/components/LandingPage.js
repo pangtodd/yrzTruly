@@ -42,9 +42,9 @@ function LandingPage(props){
   return(
     <React.Fragment>
       <form onSubmit = {handleGreetingDisplay}>
-          <h1>Say something special to that not-so-special someone.</h1>
-          <p>Someone hands you a folder at work. Hiding inside is a card for you to sign, it's Brenda from Accounting's birthday. Ugh. No idea what to write.</p>
-          <p>They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
+        <h1>Say something special to that not-so-special someone.</h1>
+        <p>Someone hands you a folder at work. Hiding inside is a card for you to sign, it's Brenda from Accounting's birthday. Ugh. No idea what to write.</p>
+        <p>They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
         <h3>who is this for?</h3>
         <DroppyDown options={relation} label = {"relation"} />
         <br></br>
@@ -53,7 +53,9 @@ function LandingPage(props){
         <button type = 'submit'>Get message!</button>
       </form>
       <TestFonty>
-        <h1 id="output"></h1>
+        <div>
+          <h1 id="output"></h1>
+        </div>
       </TestFonty>
     </React.Fragment>
   );
