@@ -33,9 +33,6 @@ function SignIn(){
       .catch((error)=>{
         setSignUpSuccess(`There was a problem signing up: ${error.message}. :(`)
       });
-    
-    
-    
   }
 
   function doSignIn(event){
