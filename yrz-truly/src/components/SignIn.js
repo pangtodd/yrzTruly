@@ -50,15 +50,16 @@ function SignIn(){
       });
   }
 
-  function doSignOut(event){
-    signOut(auth)
-      .then(function() {
-        setSignOutSuccess("you have successfully signed out.");
-      })
-      .catch(function(error){
-        setSignOutSuccess(`There was an error signing out: ${error.message}`);
-      });
-  }
+  // function doSignOut(event){
+  //   signOut(auth)
+  //     .then(function() {
+  //       setSignOutSuccess("you have successfully signed out.");
+  //     })
+  //     .catch(function(error){
+  //       setSignOutSuccess(`There was an error signing out: ${error.message}`);
+  //     });
+  // }
+  
 
   return(
     <React.Fragment>
@@ -102,10 +103,10 @@ function SignIn(){
           <br/>
         <button type = "submit">Sign in</button>
       </form>
-      <h1>Sign Out</h1>
-      {signOutSuccess}
-      <br />
-      <button onClick={doSignOut}>sign out</button>
+        {/* <h1>Sign Out</h1>
+        {signOutSuccess}
+        <br />
+        <button onClick={doSignOut}>sign out</button> */}
     </React.Fragment>
   );
 }
