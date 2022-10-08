@@ -41,7 +41,6 @@ Greeting.propTypes ={
   message: PropTypes.string,
   occasion: PropTypes.array,
   author: PropTypes.string,
-
   id: PropTypes.string,
   whenGreetingClicked: PropTypes.func
 }
