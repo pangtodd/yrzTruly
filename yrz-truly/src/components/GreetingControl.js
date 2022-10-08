@@ -14,6 +14,7 @@ function GreetingControl(){
   const [selectedGreeting, setSelectedGreeting]= useState(null);
   const [editing, setEditing]= useState(false);
   const [error, setError]= useState(null);
+  const [browseList, setBrowseList]= useState(false)
 
 useEffect(()=> {
   const unSubscribe = onSnapshot(
@@ -67,6 +68,10 @@ useEffect(()=> {
     setEditing(true);
   }
 
+  const handleBrowseListClick=()=>{
+    setBrowseList(true);
+  }
+
   const handleEditingGreetingInList= async (greetingToEdit)=>{
     const greetingRef = doc(db, "greetings", greetingToEdit.id)
     await updateDoc(greetingRef, greetingToEdit);
@@ -78,21 +83,21 @@ useEffect(()=> {
 let currentlyVisibleState = null;
 let buttonText = null;
 
-if (auth.currentUser == null){
-  if(selectedGreeting == null){
-  return(
-    <LandingPage 
-    greetingList ={mainGreetingList} />
-  )
-  } else {
-    return(
-      <GreetingDetail 
-      greeting ={selectedGreeting} />
-    )
-  }
-} else if (auth.currentUser != null) {
-  let currentlyVisibleState = null;
-  let buttonText =null;
+// if (auth.currentUser == null){
+//   if(selectedGreeting == null){
+//   return(
+//     <LandingPage 
+//     greetingList ={mainGreetingList} />
+//   )
+//   } else {
+//     return(
+//       <GreetingDetail 
+//       greeting ={selectedGreeting} />
+//     )
+//   }
+// } else if (auth.currentUser != null) {
+//   let currentlyVisibleState = null;
+//   let buttonText =null;
   if (error) {
     currentlyVisibleState=
       <p>There was an error: {error}</p>
@@ -114,20 +119,29 @@ if (auth.currentUser == null){
       <NewGreetingForm 
         onNewGreetingCreation={handleAddingNewGreetingToList} />
         buttonText= "return to list"; 
-  } else {
+  } else if (browseList==true ){
     currentlyVisibleState = 
       <GreetingList 
         onGreetingSelection ={handleChangingSelectedGreeting}
         greetingList ={mainGreetingList} />
       buttonText= "add greeting"
+  } else {
+    currentlyVisibleState=
+      <LandingPage 
+        onClickBroweList ={handleBrowseListClick}
+        greetingList ={mainGreetingList} />
+        buttonText="add greeting"
   }
+
+
     return(
       <React.Fragment>
         {currentlyVisibleState}
-        {error ? null: <button onClick={handleClick}>{buttonText}</button>}
+        {auth.currentUser != null &&<button onClick={handleClick}>{buttonText}</button> }
+        {error}
       </React.Fragment>
     );
   }
-}
+
 
 export default GreetingControl;
