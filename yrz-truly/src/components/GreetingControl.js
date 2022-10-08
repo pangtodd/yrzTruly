@@ -79,6 +79,7 @@ useEffect(()=> {
     setFormVisibleOnPage(false);
   }
 
+
   const handleEditingGreetingInList= async (greetingToEdit)=>{
     const greetingRef = doc(db, "greetings", greetingToEdit.id)
     await updateDoc(greetingRef, greetingToEdit);
@@ -86,6 +87,7 @@ useEffect(()=> {
     setSelectedGreeting(null);
     };
 
+   
 
 let currentlyVisibleState = null;
 let buttonText = null;
