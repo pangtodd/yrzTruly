@@ -2,16 +2,17 @@ import React, { useState, useContext} from "react";
 import { auth } from './../firebase.js';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, getAuth } from "firebase/auth";
 // newBelow
-import firebase from 'firebase/compat/app';
+// import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import Navbar from "./Navbar.js";
 import { AuthContext } from "../Firebase/context";
 
 function SignIn(){
   const { user } = useContext(AuthContext);
   const [signUpSuccess, setSignUpSuccess]= useState(null);
   const [signInSuccess, setSignInSuccess]= useState(null);
-  const [signOutSuccess, setSignOutSuccess]= useState(null);
+  // const [signOutSuccess, setSignOutSuccess]= useState(null);
 
   function doSignUp(event){
     event.preventDefault();
@@ -63,6 +64,7 @@ function SignIn(){
 
   return(
     <React.Fragment>
+      <Navbar />
       <h1>Returning user sign in</h1>
       {signInSuccess}
       <form onSubmit={doSignIn}>
