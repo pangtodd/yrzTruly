@@ -5,6 +5,7 @@ import GreetingDetail from './GreetingDetail';
 import EditGreetingForm from './EditGreetingForm';
 import { db, auth } from './../firebase.js';
 import LandingPage from './LandingPage'
+import Navbar from './Navbar';
 import { collection, addDoc, doc, updateDoc, onSnapshot, deleteDoc } from 'firebase/firestore';
 
 function GreetingControl(){
@@ -68,8 +69,14 @@ useEffect(()=> {
     setEditing(true);
   }
 
+  const handleShowBrowseListClick=()=>{
+    setBrowseList(current => !current);
+    setFormVisibleOnPage(false);
+  }
+
   const handleBrowseListClick=()=>{
-    setBrowseList(true);
+    setBrowseList(false);
+    setFormVisibleOnPage(false);
   }
 
   const handleEditingGreetingInList= async (greetingToEdit)=>{
@@ -82,6 +89,8 @@ useEffect(()=> {
 
 let currentlyVisibleState = null;
 let buttonText = null;
+
+
 
 // if (auth.currentUser == null){
 //   if(selectedGreeting == null){
@@ -106,7 +115,7 @@ let buttonText = null;
       <EditGreetingForm
         greeting = {selectedGreeting}
         onEditGreeting= {handleEditingGreetingInList}/>
-      buttonText="return to Greetings list";
+        buttonText="return to Greetings list";
   } else if (selectedGreeting != null){
     currentlyVisibleState = 
       <GreetingDetail 
@@ -128,7 +137,7 @@ let buttonText = null;
   } else {
     currentlyVisibleState=
       <LandingPage 
-        onClickBroweList ={handleBrowseListClick}
+        onClickBroweList ={handleShowBrowseListClick}
         greetingList ={mainGreetingList} />
         buttonText="add greeting"
   }
@@ -136,6 +145,10 @@ let buttonText = null;
 
     return(
       <React.Fragment>
+        <hr></hr>
+          <Navbar  
+            onClickHome ={handleBrowseListClick} />
+        <hr></hr>
         {currentlyVisibleState}
         {auth.currentUser != null &&<button onClick={handleClick}>{buttonText}</button> }
         {error}
