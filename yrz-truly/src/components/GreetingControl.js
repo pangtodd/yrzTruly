@@ -118,10 +118,9 @@ if (auth.currentUser == null){
     currentlyVisibleState = 
       <GreetingList 
         onGreetingSelection ={handleChangingSelectedGreeting}
-        greetingList ={mainGreetingList} />;
+        greetingList ={mainGreetingList} />
       buttonText= "add greeting"
   }
-
     return(
       <React.Fragment>
         {currentlyVisibleState}
