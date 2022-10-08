@@ -16,9 +16,6 @@ function Header(){
     <React.Fragment>
       <BannerImgTamer>
       </BannerImgTamer>
-      <hr/>
-      <Navbar />
-      <hr/>
     </React.Fragment>
   );
 }
