@@ -23,7 +23,7 @@ function Navbar(){
       <React.Fragment>
         {user && <p>currently signed in as {user.displayName}</p>}
         { user==null && <p>{signOutSuccess}</p>}
-        { user == null && 
+        {user == null && 
           <Link to= "/sign-in"> 
             <button type="button"> Sign In </button>
           </Link>}

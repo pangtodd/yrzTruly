@@ -76,10 +76,15 @@ https://celebritybucks.com/developers/birthdays/JSON
 
 https://lo-victoria.com/introduction-to-react-context-api-with-firebase-authentication
 
+* Fri, 10/7: did a lot of conditional rendering with buttons (ie, if you're logged in, you can see certain buttons.) Also re-worked the general flow of GreetingControl. Still have an issue with the home button not working the way I want. Might need to refactor that into something a little different. Also strongly considering putting a filter control at the top of Greeting list. Priorities for tomorrow are:
+1) styling- prob try 
+2) deploying
+3) tweaking/adding features
+
 
 
 ## Known Bugs 
-* As of 8/27/2022, no known bugs
+* As of 10/09/2022, no known bugs
 * email pang.todd@gmail.com if you notice any problems or have feedback
 
 ## License
