@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
 import { auth } from "../firebase";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../Firebase/context.js";
 import {  signOut } from "firebase/auth";
+import PropTypes from "prop-types";
 
-function Navbar(){
+function Navbar(props){
 
   const [signOutSuccess, setSignOutSuccess]= useState(null);
 
@@ -19,21 +20,31 @@ function Navbar(){
   }
   
   const { user } = useContext(AuthContext);
+
+  const location = useLocation()
+
     return(
       <React.Fragment>
         {user && <p>currently signed in as {user.displayName}</p>}
         { user==null && <p>{signOutSuccess}</p>}
-        {user == null && 
+        { user == null && 
           <Link to= "/sign-in"> 
             <button type="button"> Sign In </button>
           </Link>}
         {user && 
           <button onClick={doSignOut}>sign out</button>}
-        <Link to= "/"> 
-            <button type="button"> home</button>
-        </Link>
+        { location.pathname == "/sign-in"? (
+          <Link to= "/"> 
+            <button type="button"> home </button>
+          </Link>
+          ) : (          
+            <button onClick={ props.onClickHome }> home </button>
+          )}
       </React.Fragment>
     )
+}
 
+Navbar.propTypes={
+  onClickHome: PropTypes.func,
 }
 export default Navbar
