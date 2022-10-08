@@ -63,6 +63,24 @@ function SignIn(){
 
   return(
     <React.Fragment>
+      <h1>Returning user sign in</h1>
+      {signInSuccess}
+      <form onSubmit={doSignIn}>
+        <input
+          type="text"
+          name="email"
+          placeholder="email" />
+          <br/>
+          <br/>
+        <input
+          type="password"
+          name="password"
+          placeholder="password" />
+          <br/>
+          <br/>
+        <button type = "submit">Sign in</button>
+      </form>
+      <p>Wait, wait, wait! You don't have an account yet?</p>
       <h1>Sign up</h1>
       {signUpSuccess}
       <form onSubmit={doSignUp}>
@@ -85,23 +103,6 @@ function SignIn(){
           <br/>
           <br/>
         <button type = "submit">Sign up</button>
-      </form>
-      <h1>sign in</h1>
-      {signInSuccess}
-      <form onSubmit={doSignIn}>
-        <input
-          type="text"
-          name="email"
-          placeholder="email" />
-          <br/>
-          <br/>
-        <input
-          type="password"
-          name="password"
-          placeholder="password" />
-          <br/>
-          <br/>
-        <button type = "submit">Sign in</button>
       </form>
         {/* <h1>Sign Out</h1>
         {signOutSuccess}
