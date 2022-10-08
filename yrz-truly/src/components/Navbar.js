@@ -6,7 +6,8 @@ import {  signOut } from "firebase/auth";
 import PropTypes from "prop-types";
 
 function Navbar(props){
-
+  const { user } = useContext(AuthContext);
+  const location = useLocation()
   const [signOutSuccess, setSignOutSuccess]= useState(null);
 
   function doSignOut(event){
@@ -17,31 +18,28 @@ function Navbar(props){
       .catch(function(error){
         setSignOutSuccess(`There was an error signing out: ${error.message}`);
       });
-  }
-  
-  const { user } = useContext(AuthContext);
+    }
 
-  const location = useLocation()
-
-    return(
-      <React.Fragment>
-        {user && <p>currently signed in as {user.displayName}</p>}
-        { user==null && <p>{signOutSuccess}</p>}
-        { user == null && 
-          <Link to= "/sign-in"> 
-            <button type="button"> Sign In </button>
-          </Link>}
-        {user && 
-          <button onClick={doSignOut}>sign out</button>}
-        { location.pathname == "/sign-in"? (
-          <Link to= "/"> 
-            <button type="button"> home </button>
-          </Link>
-          ) : (          
-            <button onClick={ props.onClickHome }> home </button>
-          )}
-      </React.Fragment>
-    )
+  return(
+    <React.Fragment>
+      {user && <p>currently signed in as {user.displayName}</p>}
+      { user==null && <p>{signOutSuccess}</p>}
+      { user == null && 
+        <Link to= "/sign-in"> 
+          <button type="button"> Sign In </button>
+        </Link>}
+      {user && 
+        <button onClick={doSignOut}>sign out</button>}
+        {/* conditional needed since rendered in both GreetingControl and SignUp */}
+      { location.pathname == "/sign-in"? (
+        <Link to= "/"> 
+          <button type="button"> home </button>
+        </Link>
+        ) : (          
+          <button onClick={ props.onClickHome }> home </button>
+        )}
+    </React.Fragment>
+  )
 }
 
 Navbar.propTypes={

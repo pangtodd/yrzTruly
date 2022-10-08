@@ -7,8 +7,11 @@ import Navbar from "./Navbar";
 const BannerImgTamer = styled.img.attrs(props =>({
   src: props.Img|| bannerImage,
 }))`
-  max-width: 100%;
+  display: block;
+  max-width: 70%;
   height: auto;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 function Header(){
