@@ -53,9 +53,10 @@ function Navbar(props){
           <Link to= "/sign-in"> 
             <Button color="inherit">sign in</Button>
           </Link>
+          {location.pathname != "/sign-in" && <Button color="inherit" onClick={props.onClickList}>full list</Button>}
           { location.pathname == "/sign-in"? (
             <Link to= "/"> 
-              <Button color="inherit"> home </Button>
+              <Button color="inherit"> back to app </Button>
             </Link>
             ) : (          
               <Button color="inherit" onClick={ props.onClickHome }> home </Button>
@@ -68,19 +69,18 @@ function Navbar(props){
           {location.pathname != "/sign-in" &&
           <Button color="inherit" onClick={props.onClickAddGreeting}>Add greeting</Button>
           }
+          {location.pathname != "/sign-in" && <Button color="inherit" onClick={props.onClickList}>full list</Button>}
           { location.pathname == "/sign-in"? (
             <Link to= "/"> 
-              <Button color="inherit"> home </Button>
+              <Button color="inherit"> back to app </Button>
             </Link>
             ) : (          
               <Button color="inherit" onClick={ props.onClickHome }> home </Button>
             )
           }
+         
         </>
         )}
-  
-        
-
       </Toolbar>
     </AppBar>
   </Box>
@@ -90,5 +90,6 @@ function Navbar(props){
 Navbar.propTypes={
   onClickHome: PropTypes.func,
   onClickAddGreeting: PropTypes.func,
+  onClickList: PropTypes.func
 }
 export default Navbar
