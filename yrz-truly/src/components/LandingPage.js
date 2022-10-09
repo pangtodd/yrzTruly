@@ -59,27 +59,29 @@ function LandingPage(props){
     <>
     <form onSubmit = {handleGreetingDisplay}>
       <h1>Say something special to that not-so-special someone.</h1>
+      <h3> Let YrzTruly help you figure out what to write in that greeting card </h3>
       <p>Someone hands you a folder at work. Hiding inside is a card for you to sign, it's Brenda from Accounting's birthday. Ugh. No idea what to write.</p>
       <p>They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
       <br></br>
-      <Box sx={{ bgcolor: '#8B5853', color: 'primary.contrastText', flexGrow: 1 }}>
-      <Grid container spacing={2} background= 'primary.main'>
-        <Grid  item xs={6} md={4}>
-          <h3 align="center">Who is this for?</h3>
-          <div align ="center"><DroppyDown options={relation} label = {"relation"} /></div>
+      <h3>Let's get that card signed!</h3>
+      <Box sx={{ border: 3, borderColor: "#53868b", bgcolor: "inherit", color: 'primary.contrastText', flexGrow: 1 }}>
+        <Grid container spacing={2} background= 'primary.main' color='black'>
+          <Grid  item xs={6} md={4}>
+            <h3 align="center">Who is this for?</h3>
+            <div align ="center"><DroppyDown options={relation} label = {"relation"} /></div>
+          </Grid>
+          <Grid item xs={6} md={4}>
+            <h3 align="center">What is the occasion?</h3>
+            <div align ="center"><DroppyDown options={occasion} label = {"occasion"} /></div>
+            <br></br>
+          </Grid>
+          <Grid item xs={6} md={4}>
+            <br></br>
+            <br></br>
+            <div align="center"><button type = 'submit'>Get message!</button></div>
+          </Grid>
         </Grid>
-        <Grid item xs={6} md={4}>
-          <h3 align="center">What is the occasion?</h3>
-          <div align="center"><DroppyDown options={occasion} label= {"occasion"}/></div>
-          <br></br>
-        </Grid>
-        <Grid item xs={6} md={4}>
-          <br></br>
-          <br></br>
-          <div align="center"><button type = 'submit'>Get message!</button></div>
-        </Grid>
-      </Grid>
-    </Box>
+      </Box>
     <br></br>
     </form>
        <div>
