@@ -62,7 +62,7 @@ function LandingPage(props){
       <p>Someone hands you a folder at work. Hiding inside is a card for you to sign, it's Brenda from Accounting's birthday. Ugh. No idea what to write.</p>
       <p>They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
       <br></br>
-      <Box sx={{ bgcolor: '#53868b', color: 'primary.contrastText', flexGrow: 1 }}>
+      <Box sx={{ bgcolor: '#8B5853', color: 'primary.contrastText', flexGrow: 1 }}>
       <Grid container spacing={2} background= 'primary.main'>
         <Grid  item xs={6} md={4}>
           <h3 align="center">Who is this for?</h3>
