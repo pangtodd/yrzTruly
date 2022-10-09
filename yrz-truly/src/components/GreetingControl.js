@@ -133,7 +133,9 @@ let buttonText = null;
       <React.Fragment>
         <Navbar  
           onClickHome ={handleBrowseListClick} 
-          onClickAddGreeting={handleClick}/>
+          onClickAddGreeting={handleClick}
+          onClickList= {handleShowBrowseListClick}/>
+          
         {currentlyVisibleState}
         {error}
       </React.Fragment>
