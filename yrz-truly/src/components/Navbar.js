@@ -38,7 +38,7 @@ function Navbar(props){
           edge="start"
           color="inherit"
           aria-label="menu"
-          sx={{ mr: 2 }}
+          sx={{ mr: 2}}
         >
           <MenuIcon />
         </IconButton>
@@ -48,29 +48,38 @@ function Navbar(props){
         </Typography>
 
     {/* sign in button */}
-        { user == null && 
-        <Link to= "/sign-in"> 
-          <Button color="inherit">sign in</Button>
-        </Link>}
-    {/* Sign out button */}
-        {user && <Button color="inherit" onClick={doSignOut}>sign out</Button>}
-    {/* conditional button add greeting */}
-        {user && location.pathname == "/sign-in"?(
-        <Link to= "/add-greeting"> 
-        {/* Just wanted to remove the button for now. Figure out more elegent way later. */}
-        </Link>
-        ) : (
-        <Button color="inherit" onClick={props.onClickAddGreeting}>Add greeting</Button>
-        )}
-    {/* conditional home*/}
-        { location.pathname == "/sign-in"? (
+        { user == null ?(
+        <>
+          <Link to= "/sign-in"> 
+            <Button color="inherit">sign in</Button>
+          </Link>
+          { location.pathname == "/sign-in"? (
             <Link to= "/"> 
               <Button color="inherit"> home </Button>
             </Link>
             ) : (          
               <Button color="inherit" onClick={ props.onClickHome }> home </Button>
             )
-        }
+          }
+        </>
+        ):(
+        <>
+          <Button color="inherit" onClick={doSignOut}>sign out</Button>
+          {location.pathname != "/sign-in" &&
+          <Button color="inherit" onClick={props.onClickAddGreeting}>Add greeting</Button>
+          }
+          { location.pathname == "/sign-in"? (
+            <Link to= "/"> 
+              <Button color="inherit"> home </Button>
+            </Link>
+            ) : (          
+              <Button color="inherit" onClick={ props.onClickHome }> home </Button>
+            )
+          }
+        </>
+        )}
+  
+        
 
       </Toolbar>
     </AppBar>
