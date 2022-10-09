@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { AuthContext } from "../Firebase/context.js";
+import Button from '@mui/material/Button';
 
 function Greeting(props){
   const { user } = useContext(AuthContext);
@@ -28,7 +29,7 @@ function Greeting(props){
         <h3>{props.message}</h3>
         <br></br>
         <p> author: {props.author}</p>
-        {props.author == user.displayName && <button onClick={()=> props.whenGreetingClicked(props.id)}>edit</button>}
+        {props.author == user.displayName && <Button variant= "contained" color='inherit' onClick={()=> props.whenGreetingClicked(props.id)}>edit</Button>}
         <hr/>
       </div>
     </React.Fragment>

@@ -4,6 +4,14 @@ import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../Firebase/context.js";
 import {  signOut } from "firebase/auth";
 import PropTypes from "prop-types";
+// new stuff
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 function Navbar(props){
   const { user } = useContext(AuthContext);
@@ -21,36 +29,67 @@ function Navbar(props){
     }
 
   return(
-    <React.Fragment>
-      {user && <p>currently signed in as {user.displayName}</p>}
-      { user==null && <p>{signOutSuccess}</p>}
-      { user == null && 
-        <Link to= "/sign-in"> 
-          <button type="button"> Sign In </button>
-        </Link>}
-      {user && <button onClick={doSignOut}>sign out</button>}
-      {user && location.pathname == "/sign-in"?(
-        <Link to= "/add-greeting"> 
-        {/* Just wanted to remove the button for now. Figure out more elegent way later. */}
-        </Link>
-      ) : (
-        <button onClick={props.onClickAddGreeting}>Add greeting</button>
-      )}
-        {/* conditional needed since rendered in both GreetingControl and SignUp */}
-      { location.pathname == "/sign-in"? (
-          <Link to= "/"> 
-            <button type="button"> home </button>
+
+    <Box sx={{ flexGrow: 1 }}>
+    <AppBar position="static" style = {{ background: '#53868b'}}>
+      <Toolbar>
+        <IconButton
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          sx={{ mr: 2}}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            {user && <p>currently signed in as {user.displayName}</p>}
+            { user==null && <p>{signOutSuccess}</p>}
+        </Typography>
+
+    {/* sign in button */}
+        { user == null ?(
+        <>
+          <Link to= "/sign-in"> 
+            <Button color="inherit">sign in</Button>
           </Link>
-          ) : (          
-            <button onClick={ props.onClickHome }> home </button>
-          )
-      }
-    </React.Fragment>
+          {location.pathname != "/sign-in" && <Button color="inherit" onClick={props.onClickList}>full list</Button>}
+          { location.pathname == "/sign-in"? (
+            <Link to= "/"> 
+              <Button color="inherit"> back to app </Button>
+            </Link>
+            ) : (          
+              <Button color="inherit" onClick={ props.onClickHome }> home </Button>
+            )
+          }
+        </>
+        ):(
+        <>
+          <Button color="inherit" onClick={doSignOut}>sign out</Button>
+          {location.pathname != "/sign-in" &&
+          <Button color="inherit" onClick={props.onClickAddGreeting}>Add greeting</Button>
+          }
+          {location.pathname != "/sign-in" && <Button color="inherit" onClick={props.onClickList}>full list</Button>}
+          { location.pathname == "/sign-in"? (
+            <Link to= "/"> 
+              <Button color="inherit"> back to app </Button>
+            </Link>
+            ) : (          
+              <Button color="inherit" onClick={ props.onClickHome }> home </Button>
+            )
+          }
+         
+        </>
+        )}
+      </Toolbar>
+    </AppBar>
+  </Box>
   )
 }
 
 Navbar.propTypes={
   onClickHome: PropTypes.func,
   onClickAddGreeting: PropTypes.func,
+  onClickList: PropTypes.func
 }
 export default Navbar

@@ -42,7 +42,7 @@ useEffect(()=> {
 
   const handleClick = ()=> {
     if (auth.currentUser == null) {
-      console.log("figure out an alert!");
+      buttonText= "signed in users only";
     } else {
       if (selectedGreeting != null) {
         setFormVisibleOnPage(false);
@@ -91,28 +91,10 @@ useEffect(()=> {
     setSelectedGreeting(null);
     };
 
-   
 
 let currentlyVisibleState = null;
 let buttonText = null;
 
-
-
-// if (auth.currentUser == null){
-//   if(selectedGreeting == null){
-//   return(
-//     <LandingPage 
-//     greetingList ={mainGreetingList} />
-//   )
-//   } else {
-//     return(
-//       <GreetingDetail 
-//       greeting ={selectedGreeting} />
-//     )
-//   }
-// } else if (auth.currentUser != null) {
-//   let currentlyVisibleState = null;
-//   let buttonText =null;
   if (error) {
     currentlyVisibleState=
       <p>There was an error: {error}</p>
@@ -121,43 +103,40 @@ let buttonText = null;
       <EditGreetingForm
         greeting = {selectedGreeting}
         onEditGreeting= {handleEditingGreetingInList}/>
-        buttonText="return to Greetings list";
   } else if (selectedGreeting != null){
     currentlyVisibleState = 
       <GreetingDetail 
         greeting = {selectedGreeting}
         onClickingDelete={handleDeletingGreeting} 
-        onClickingEdit = {handleEditClick}/>
-        buttonText="return to list";
+        onClickingEdit = {handleEditClick}
+        onClickReturn={handleClick}/>
   } else if (formVisibleOnPage){
     currentlyVisibleState= 
       <NewGreetingForm 
-        onNewGreetingCreation={handleAddingNewGreetingToList} />
-        buttonText= "return to list"; 
+        onNewGreetingCreation={handleAddingNewGreetingToList} 
+        onClickReturn={handleClick}/>
   } else if (browseList==true ){
     currentlyVisibleState = 
       <GreetingList 
         onGreetingSelection ={handleChangingSelectedGreeting}
-        greetingList ={mainGreetingList} />
-      buttonText= "add greeting"
+        greetingList ={mainGreetingList} 
+        onClickAddGreeting={handleClick}/>
+
   } else {
     currentlyVisibleState=
       <LandingPage 
         onClickBroweList ={handleShowBrowseListClick}
         greetingList ={mainGreetingList} />
-        buttonText="add greeting"
   }
-
 
     return(
       <React.Fragment>
-        <hr></hr>
         <Navbar  
           onClickHome ={handleBrowseListClick} 
-          onClickAddGreeting={handleClick}/>
-        <hr></hr>
+          onClickAddGreeting={handleClick}
+          onClickList= {handleShowBrowseListClick}/>
+          
         {currentlyVisibleState}
-        {auth.currentUser != null &&<button onClick={handleClick}>{buttonText}</button> }
         {error}
       </React.Fragment>
     );
