@@ -31,7 +31,7 @@ function Navbar(props){
   return(
 
     <Box sx={{ flexGrow: 1 }}>
-    <AppBar position="static" style = {{ background: '#2E3B55'}}>
+    <AppBar position="static" style = {{ background: '#53868b'}}>
       <Toolbar>
         <IconButton
           size="large"
