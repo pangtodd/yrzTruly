@@ -91,7 +91,6 @@ useEffect(()=> {
     setSelectedGreeting(null);
     };
 
-   
 
 let currentlyVisibleState = null;
 let buttonText = null;
@@ -148,14 +147,11 @@ let buttonText = null;
         buttonText="add greeting"
   }
 
-
     return(
       <React.Fragment>
-        <hr></hr>
         <Navbar  
           onClickHome ={handleBrowseListClick} 
           onClickAddGreeting={handleClick}/>
-        <hr></hr>
         {currentlyVisibleState}
         {auth.currentUser != null &&<button onClick={handleClick}>{buttonText}</button> }
         {error}
