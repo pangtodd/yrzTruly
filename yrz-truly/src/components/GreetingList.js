@@ -1,8 +1,14 @@
-import React from "react";
+// import React from "react";
 import Greeting from "./Greeting";
 import PropTypes from "prop-types";
 import DroppyDown from "./Dropdown";
 import {useState} from 'react';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+
 
 const relation = [
   { label: 'co-worker', value: 'co-worker' },
@@ -43,17 +49,28 @@ function GreetingList(props){
 
   return(
     <React.Fragment>
-        <form onSubmit = {handleGreetingDisplay}>
-        <h1>Browse Greetings</h1>
-        <h3>who is this for?</h3>
-        <DroppyDown options={relation} label = {"relation"} />
-        <br></br>
-        <h3>what is the occasion?</h3>
-        <DroppyDown options={occasion} label= {"occasion"}/>
-        <br></br>
-        <button type = 'submit'>Get message!</button>
+      <h3>Sort through greetings</h3>
+      <p>Got a better idea? Sign in to add a new greeting or to edit/delete one you wrote.</p>
+      <form onSubmit = {handleGreetingDisplay}>
+        <Box sx={{ border: 3, borderColor: "#53868b", bgcolor: "inherit", color: 'primary.contrastText', flexGrow: 1 }}>
+          <Grid container spacing={2} background= 'primary.main' color='black'>
+            <Grid  item xs={6} md={4}>
+              <h3 align="center">Who is this for?</h3>
+              <div align ="center"><DroppyDown options={relation} label = {"relation"} /></div>
+            </Grid>
+            <Grid item xs={6} md={4}>
+              <h3 align="center">What is the occasion?</h3>
+              <div align ="center"><DroppyDown options={occasion} label = {"occasion"} /></div>
+              <br></br>
+            </Grid>
+            <Grid item xs={6} md={4}>
+              <br></br>
+              <br></br>
+              <div align="center"><button type = 'submit'>Get message!</button></div>
+            </Grid>
+          </Grid>
+        </Box>
       </form>
-      <hr/>
       {quotes == null && 
       <div>
         {props.greetingList.map((greeting)=>
@@ -81,8 +98,9 @@ function GreetingList(props){
               key={greeting.id} /> 
           )}
       </div>
-      }
       
+      }
+    <Button variant= "contained" color='inherit' onClick={props.onClickAddGreeting}>Add greeting</Button>
   
     </React.Fragment>
   );
@@ -90,7 +108,8 @@ function GreetingList(props){
 
 GreetingList.propTypes={
   greetingList: PropTypes.array,
-  onGreetingSelection: PropTypes.func
+  onGreetingSelection: PropTypes.func,
+  onClickAddGreeting: PropTypes.func,
 };
 
 export default GreetingList;

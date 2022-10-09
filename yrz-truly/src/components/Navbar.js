@@ -84,31 +84,6 @@ function Navbar(props){
       </Toolbar>
     </AppBar>
   </Box>
-    // <React.Fragment>
-    //   {user && <p>currently signed in as {user.displayName}</p>}
-    //   { user==null && <p>{signOutSuccess}</p>}
-      // { user == null && 
-      //   <Link to= "/sign-in"> 
-      //     <Button variant="contained">sign in</Button>
-      //   </Link>}
-      // {user && <Button variant="contained" onClick={doSignOut}>sign out</Button>}
-      // {user && location.pathname == "/sign-in"?(
-      //   <Link to= "/add-greeting"> 
-      //   {/* Just wanted to remove the button for now. Figure out more elegent way later. */}
-      //   </Link>
-      // ) : (
-      //   <button onClick={props.onClickAddGreeting}>Add greeting</button>
-      // )}
-      //   {/* conditional needed since rendered in both GreetingControl and SignUp */}
-      // { location.pathname == "/sign-in"? (
-      //     <Link to= "/"> 
-      //       <button type="button"> home </button>
-      //     </Link>
-      //     ) : (          
-      //       <button onClick={ props.onClickHome }> home </button>
-      //     )
-      // }
-    // </React.Fragment>
   )
 }
 
