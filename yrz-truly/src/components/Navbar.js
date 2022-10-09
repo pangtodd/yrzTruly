@@ -28,21 +28,29 @@ function Navbar(props){
         <Link to= "/sign-in"> 
           <button type="button"> Sign In </button>
         </Link>}
-      {user && 
-        <button onClick={doSignOut}>sign out</button>}
+      {user && <button onClick={doSignOut}>sign out</button>}
+      {user && location.pathname == "/sign-in"?(
+        <Link to= "/add-greeting"> 
+        {/* Just wanted to remove the button for now. Figure out more elegent way later. */}
+        </Link>
+      ) : (
+        <button onClick={props.onClickAddGreeting}>Add greeting</button>
+      )}
         {/* conditional needed since rendered in both GreetingControl and SignUp */}
       { location.pathname == "/sign-in"? (
-        <Link to= "/"> 
-          <button type="button"> home </button>
-        </Link>
-        ) : (          
-          <button onClick={ props.onClickHome }> home </button>
-        )}
+          <Link to= "/"> 
+            <button type="button"> home </button>
+          </Link>
+          ) : (          
+            <button onClick={ props.onClickHome }> home </button>
+          )
+      }
     </React.Fragment>
   )
 }
 
 Navbar.propTypes={
   onClickHome: PropTypes.func,
+  onClickAddGreeting: PropTypes.func,
 }
 export default Navbar
