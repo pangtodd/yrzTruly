@@ -41,13 +41,17 @@ useEffect(()=> {
 },[]);
 
   const handleClick = ()=> {
-    if (selectedGreeting != null) {
-      setFormVisibleOnPage(false);
-      setSelectedGreeting(null);
-      setEditing(false);
+    if (auth.currentUser == null) {
+      console.log("figure out an alert!");
     } else {
-      setFormVisibleOnPage(!formVisibleOnPage);
-    }
+      if (selectedGreeting != null) {
+        setFormVisibleOnPage(false);
+        setSelectedGreeting(null);
+        setEditing(false);
+      } else {
+        setFormVisibleOnPage(!formVisibleOnPage);
+      }
+  }
   }
 
   const handleAddingNewGreetingToList = async (newGreetingData)=>{
@@ -148,8 +152,9 @@ let buttonText = null;
     return(
       <React.Fragment>
         <hr></hr>
-          <Navbar  
-            onClickHome ={handleBrowseListClick} />
+        <Navbar  
+          onClickHome ={handleBrowseListClick} 
+          onClickAddGreeting={handleClick}/>
         <hr></hr>
         {currentlyVisibleState}
         {auth.currentUser != null &&<button onClick={handleClick}>{buttonText}</button> }
