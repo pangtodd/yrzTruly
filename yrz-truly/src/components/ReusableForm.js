@@ -33,7 +33,7 @@ function ReusableForm(props) {
           placeholder='your message'/>
           <br></br>
           <br></br>
-        <Button variant= "contained" color='inherit'>Submit greeting</Button>
+        <Button variant= "contained" color='inherit' type="submit">Submit greeting</Button>
         <br></br>
       </form>
       <br></br>
