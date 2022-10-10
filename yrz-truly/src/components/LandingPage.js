@@ -1,13 +1,14 @@
-import React from "react";
+// import React from "react";
 import DroppyDown from "./Dropdown";
 import PropTypes from "prop-types";
-import styled from 'styled-components';
-import GreetingControl from './GreetingControl';
+// import styled from 'styled-components';
 import {useState} from 'react';
-
-const TestFonty = styled.h1`
-  font-family: Garamond, serif;
-`;
+// new stuff below
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
 
 const relation = [
   { label: 'co-worker', value: 'co-worker' },
@@ -45,31 +46,44 @@ function LandingPage(props){
   };
 
   return(
-    <React.Fragment>
+    <>
       <form onSubmit = {handleGreetingDisplay}>
         <h1>Say something special to that not-so-special someone.</h1>
+        <h3> Let YrzTruly help you figure out what to write in that greeting card </h3>
         <p>Someone hands you a folder at work. Hiding inside is a card for you to sign, it's Brenda from Accounting's birthday. Ugh. No idea what to write.</p>
         <p>They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
-        <h3>who is this for?</h3>
-        <DroppyDown options={relation} label = {"relation"} />
         <br></br>
-        <h3>what is the occasion?</h3>
-        <DroppyDown options={occasion} label= {"occasion"}/>
-        <br></br>
-        <button type = 'submit'>Get message!</button>
+        <h3>Let's get that card signed!</h3>
+        <Box sx={{ border: 3, borderColor: "#53868b", bgcolor: "inherit", color: 'primary.contrastText', flexGrow: 1 }}>
+          <Grid container spacing={2} background= 'primary.main' color='black'>
+            <Grid  item xs={6} md={4}>
+              <h3 align="center">Who is this for?</h3>
+              <div align ="center"><DroppyDown options={relation} label = {"relation"} /></div>
+            </Grid>
+            <Grid item xs={6} md={4}>
+              <h3 align="center">What is the occasion?</h3>
+              <div align ="center"><DroppyDown options={occasion} label = {"occasion"} /></div>
+              <br></br>
+            </Grid>
+            <Grid item xs={6} md={4}>
+              <br></br>
+              <br></br>
+              <div align="center"> <Button variant= "contained" color='inherit' type="submit">Get message!</Button></div>
+            </Grid>
+          </Grid>
+        </Box>
+      <br></br>
       </form>
-      <TestFonty>
-        <div>
+      <div>
           <h1 id="output"></h1>
           {isShown && (
           <div>
-          <button onClick={handleGreetingDisplay}>Meh. Try another one.</button>
-          <button onClick={props.onClickBroweList}>Browse full list of greetings.</button>
+          <Button variant= "contained" color='inherit' onClick={handleGreetingDisplay}>Meh. Try another one.</Button>
+          <Button variant= "contained" color='inherit' onClick={props.onClickBroweList}>Browse full list of greetings.</Button>
           </div>
           )}
-        </div>
-      </TestFonty>
-    </React.Fragment>
+      </div>
+    </>
   );
 }
 
@@ -79,4 +93,10 @@ LandingPage.propTypes={
 }
 
 export default LandingPage;
+
+
+
+
+
+
 

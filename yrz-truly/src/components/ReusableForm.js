@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import CheckyBoxes from "./Checkbox";
+import Button from '@mui/material/Button';
 
 const allRelations = [
   {name:"relation", value: "co-worker"},
@@ -32,8 +33,10 @@ function ReusableForm(props) {
           placeholder='your message'/>
           <br></br>
           <br></br>
-        <button type='submit'>Submit greeting</button>
+        <Button variant= "contained" color='inherit'>Submit greeting</Button>
+        <br></br>
       </form>
+      <br></br>
   </React.Fragment>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReusableForm from "./ReusableForm";
 import { auth } from './../firebase.js';
+import Button from '@mui/material/Button';
 
 function NewGreetingForm(props){
 
@@ -35,7 +36,9 @@ function NewGreetingForm(props){
         formSubmissionHandler={handleNewGreetingFormSubmission}
         buttonText="submit!"
         />
+    <Button variant= "contained" color='inherit' onClick={props.onClickReturn}>Return to list</Button>
     </React.Fragment>
+    
   );
 }
 
