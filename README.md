@@ -29,6 +29,9 @@ The following user stories were considered in planning this app:
 * As a user, I want to be able to see different suggestions based on the occasion and the relationship I have to the person.
 * As an admin, I want to full CRUD access to messages (still working on this feature).
 
+## Diagram of components
+
+![Diagram](./yrz-truly/src/img/yrzTrulyDiagram.jpg)
 
 ## Setup/Installation Requirements
 
