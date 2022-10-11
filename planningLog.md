@@ -80,6 +80,10 @@ https://lo-victoria.com/introduction-to-react-context-api-with-firebase-authenti
 1) styling- prob try 
 2) deploying
 3) tweaking/adding features
+* Sat, 10/8: Did a lot of work on the Navbar to get it working the way I wanted. Ended up moving it out of the Header and into the other components (easier to manage props.). Also created search filter for greeting list. Started styling/working with MUI.
+* Sun, 10/9: Finished "styling" (more to go...more to learn abotu MUI). Made some tweaks to the navbar to make it more functional. Started to try to deploy it, ran out of time before presentations.
+*Monday, 10/10: Got it deployed to Firebase. Connected it to the custom domain, but the https stuff is gonna take a while. That was most of the day- played with some images, but ultimately didn't add. Minor tweaks/thinking about what next. Def want to refactor some elements to be more modular (dropdown menu, buttons). Also want to add some more features.
+* Tues, 10/11: refactored the dropdown menu/filter into a reusable compoent. Made a few text tweaks. Working on buttons next.
 
 
 
