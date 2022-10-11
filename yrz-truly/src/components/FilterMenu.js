@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 
-
 const relation = [
   { label: 'co-worker', value: 'co-worker' },
   { label: 'friend', value: 'friend' },
@@ -38,7 +37,7 @@ function FilterMenu(){
         <Grid item xs={6} md={4}>
           <br></br>
           <br></br>
-          <div align="center"><button type = 'submit'>Get message!</button></div>
+          <div align="center"><Button variant= "contained" color='inherit' type = 'submit'>Get message!</Button></div>
         </Grid>
       </Grid>
     </Box>
