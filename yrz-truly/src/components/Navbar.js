@@ -46,8 +46,6 @@ function Navbar(props){
             {user && <p>currently signed in as {user.displayName}</p>}
             { user==null && <p>{signOutSuccess}</p>}
         </Typography>
-
-    {/* sign in button */}
         { user == null ?(
         <>
           <Link to= "/sign-in"> 
@@ -78,7 +76,6 @@ function Navbar(props){
               <Button color="inherit" onClick={ props.onClickHome }> home </Button>
             )
           }
-         
         </>
         )}
       </Toolbar>
