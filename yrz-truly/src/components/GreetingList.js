@@ -53,9 +53,10 @@ function GreetingList(props){
       {auth.currentUser ?
         (
           <p>Got a better idea? Please share!  <Button variant= "contained" color='inherit' onClick={props.onClickAddGreeting}>Add greeting</Button></p>
-          ):(
+            ):(
           <p>Got a better idea? Sign in to add a new greeting or to edit/delete one you wrote.</p>
-          )}
+        )
+      }
       <form onSubmit = {handleGreetingDisplay}>
         <Box sx={{ border: 3, borderColor: "#53868b", bgcolor: "inherit", color: 'primary.contrastText', flexGrow: 1 }}>
           <Grid container spacing={2} background= 'primary.main' color='black'>
@@ -77,36 +78,35 @@ function GreetingList(props){
         </Box>
       </form>
       {quotes == null && 
-      <div>
-        {props.greetingList.map((greeting)=>
-            <Greeting
-              whenGreetingClicked = { props.onGreetingSelection} 
-              relation={greeting.relation}
-              occasion={greeting.occasion}
-              message={greeting.message}
-              author={greeting.author}
-              id={greeting.id}
-              key={greeting.id} /> 
-          )}
-      </div>
+        <div>
+          {props.greetingList.map((greeting)=>
+              <Greeting
+                whenGreetingClicked = { props.onGreetingSelection} 
+                relation={greeting.relation}
+                occasion={greeting.occasion}
+                message={greeting.message}
+                author={greeting.author}
+                id={greeting.id}
+                key={greeting.id} /> 
+            )}
+        </div>
       }
       {quotes != null && 
-      <div>
-        {quotes.map((greeting)=>
-            <Greeting
-              whenGreetingClicked = { props.onGreetingSelection} 
-              relation={greeting.relation}
-              occasion={greeting.occasion}
-              message={greeting.message}
-              author={greeting.author}
-              id={greeting.id}
-              key={greeting.id} /> 
-          )}
-      </div>
+        <div>
+          {quotes.map((greeting)=>
+              <Greeting
+                whenGreetingClicked = { props.onGreetingSelection} 
+                relation={greeting.relation}
+                occasion={greeting.occasion}
+                message={greeting.message}
+                author={greeting.author}
+                id={greeting.id}
+                key={greeting.id} /> 
+            )}
+        </div>
       
       }
-    {auth.currentUser && <Button variant= "contained" color='inherit' onClick={props.onClickAddGreeting}>Add greeting</Button>}
-  
+      {auth.currentUser && <Button variant= "contained" color='inherit' onClick={props.onClickAddGreeting}>Add greeting</Button>}
     </React.Fragment>
   );
 }
