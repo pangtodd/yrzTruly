@@ -1,11 +1,7 @@
-// import React from "react";
 import DroppyDown from "./Dropdown";
 import PropTypes from "prop-types";
-// import styled from 'styled-components';
 import {useState} from 'react';
 // new stuff below
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
@@ -47,13 +43,13 @@ function LandingPage(props){
 
   return(
     <>
-      <form onSubmit = {handleGreetingDisplay}>
-        <h1>Say something special to that not-so-special someone.</h1>
-        <h3> Let YrzTruly help you figure out what to write in that greeting card </h3>
-        <p>Someone hands you a folder at work. Hiding inside is a card for you to sign, it's Brenda from Accounting's birthday. Ugh. No idea what to write.</p>
-        <p>They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
-        <br></br>
-        <h3>Let's get that card signed!</h3>
+      <h1>Say something special to that not-so-special someone.</h1>
+      <h2> Let YrzTruly help you figure out what to write in that greeting card </h2>
+      <p>Someone hands you a folder at work. Hiding inside is a card for you to sign, it's Brenda from Accounting's birthday. Ugh. No idea what to write.
+        They probably won't read it. But in case they do, use one of our suggestions to come off as clever and thoughtful.</p>
+      <br></br>
+      <h3>Let's get that card signed!</h3>
+      <form onSubmit = {handleGreetingDisplay}> 
         <Box sx={{ border: 3, borderColor: "#53868b", bgcolor: "inherit", color: 'primary.contrastText', flexGrow: 1 }}>
           <Grid container spacing={2} background= 'primary.main' color='black'>
             <Grid  item xs={6} md={4}>
@@ -93,10 +89,3 @@ LandingPage.propTypes={
 }
 
 export default LandingPage;
-
-
-
-
-
-
-
