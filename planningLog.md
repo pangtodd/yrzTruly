@@ -84,6 +84,7 @@ https://lo-victoria.com/introduction-to-react-context-api-with-firebase-authenti
 * Sun, 10/9: Finished "styling" (more to go...more to learn abotu MUI). Made some tweaks to the navbar to make it more functional. Started to try to deploy it, ran out of time before presentations.
 *Monday, 10/10: Got it deployed to Firebase. Connected it to the custom domain, but the https stuff is gonna take a while. That was most of the day- played with some images, but ultimately didn't add. Minor tweaks/thinking about what next. Def want to refactor some elements to be more modular (dropdown menu, buttons). Also want to add some more features.
 * Tues, 10/11: refactored the dropdown menu/filter into a reusable compoent. Made a few text tweaks. Working on buttons next.
+* Weds, 10/12: added a timestamp attribute when a new entry is added. Trying to figure out how to change all old entries...but scared I might blow up the database. Looking into local emulator product from firebase.
 
 
 
