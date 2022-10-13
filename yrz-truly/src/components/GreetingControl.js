@@ -28,7 +28,8 @@ useEffect(()=> {
             occasion: doc.data().occasion, 
             message: doc.data().message, 
             author: doc.data().author,
-            id: doc.id
+            timestamp: doc.data().timestamp,
+            id: doc.id, 
           });
       });
       setMainGreetingList(greetings);

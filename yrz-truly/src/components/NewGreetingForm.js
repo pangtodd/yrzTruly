@@ -21,11 +21,13 @@ function NewGreetingForm(props){
 
   function handleNewGreetingFormSubmission(event){
     event.preventDefault();
+    const now = new Date();
     props.onNewGreetingCreation({
       relation: handleCheckboxValues("relation"),
       occasion: handleCheckboxValues("occasion"),
       message: event.target.message.value,
-      author: user.displayName
+      author: user.displayName,
+      timestamp: now.toISOString(),
     });
     
   }
