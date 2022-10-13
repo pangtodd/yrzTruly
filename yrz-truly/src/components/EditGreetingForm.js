@@ -19,11 +19,13 @@ function EditGreetingForm(props){
 
   function handleEditGreetingFormSubmission(event){
     event.preventDefault();
+    const now = new Date();
     props.onEditGreeting({
-      relation: handleCheckboxValues("relation"),
-      occasion: handleCheckboxValues("occasion"),
-      message: event.target.message.value,
-      id: greeting.id
+      // relation: handleCheckboxValues("relation"),
+      // occasion: handleCheckboxValues("occasion"),
+      // message: event.target.message.value,
+      id: greeting.id,
+      timestamp: now.toISOString(),
     });
   }
 
